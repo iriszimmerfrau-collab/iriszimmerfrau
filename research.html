@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Research & Projects | Iris Zimmerfrau — Quantum Computing, AI, Linguistics</title>
+<meta name="description" content="Research and projects by Iris Zimmerfrau spanning quantum computing (PFQVS), NLP, computational linguistics, synthetic biology, and community infrastructure.">
+<meta name="author" content="Iris Zimmerfrau">
+<link rel="canonical" href="https://iriszimmerfrau.com/research.html">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Research & Projects | Iris Zimmerfrau">
+<meta property="og:description" content="Quantum computing simulation, NLP pipelines, Arabic linguistics, CRISPR biology, and community infrastructure projects.">
+<meta property="og:url" content="https://iriszimmerfrau.com/research.html">
+<meta property="og:site_name" content="Iris Zimmerfrau">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Research & Projects | Iris Zimmerfrau">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Research & Projects — Iris Zimmerfrau",
+  "description": "Research projects by Iris Zimmerfrau in quantum computing, AI/ML, computational linguistics, synthetic biology, and community infrastructure.",
+  "url": "https://iriszimmerfrau.com/research.html",
+  "author": {
+    "@type": "Person",
+    "name": "Iris Zimmerfrau",
+    "url": "https://iriszimmerfrau.com"
+  }
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+  <span>Iris Zimmerfrau — Independent Researcher & Developer</span>
+  <span>San Francisco, CA</span>
+</div>
+
+<header>
+  <a href="index.html" class="logo-block">
+    <div class="logo-bar"></div>
+    <div>
+      <span class="logo-name">Iris Zimmerfrau</span>
+      <span class="logo-title">Quantum Computing · Linguistics · Software</span>
+    </div>
+  </a>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="research.html" class="active">Research</a>
+    <a href="publications.html">Publications</a>
+    <a href="software.html">Software</a>
+    <a href="background.html">Background</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<div class="page-hero">
+  <div class="page-hero-inner">
+    <p class="page-hero-label">Research & Projects</p>
+    <h1>Active research spanning <em>five disciplines</em></h1>
+    <p class="page-hero-sub">Quantum simulation, applied AI, computational linguistics, synthetic biology, and community infrastructure — built independently, with real-world constraints in mind.</p>
+  </div>
+</div>
+
+<div class="page-inner">
+<div class="content-grid">
+
+  <main>
+    <section style="margin-bottom:3.5rem;">
+
+      <div class="tab-bar">
+        <div class="tab active" onclick="switchTab(this,'all')">All Projects</div>
+        <div class="tab" onclick="switchTab(this,'quantum')">Quantum</div>
+        <div class="tab" onclick="switchTab(this,'ai')">AI & ML</div>
+        <div class="tab" onclick="switchTab(this,'linguistics')">Linguistics</div>
+        <div class="tab" onclick="switchTab(this,'applied')">Applied</div>
+      </div>
+
+      <!-- ALL -->
+      <div class="tab-panel active" id="tab-all">
+
+        <div class="research-card">
+          <div class="card-type-bar quantum"></div>
+          <div class="card-body">
+            <p class="card-topic">Quantum Computing · Novel Simulation Method</p>
+            <h2 class="card-title">PFQVS — Perlin-Fourier Quantum State Simulation</h2>
+            <p class="card-desc">Novel technique using Perlin noise seeded with environmental derivatives (humidity, temperature, time) as a true-randomness approximation for quantum state simulation. More resource-efficient than IBM's queued quantum computers for small-to-medium tasks. Performance benchmarks compiled; in preparation for academic submission. Built on the <a href="https://pypi.org/project/amin-qvm/" target="_blank" rel="noopener">amin-qvm</a> library.</p>
+            <div class="card-meta"><span class="card-status status-research">In Submission</span></div>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="card-type-bar quantum"></div>
+          <div class="card-body">
+            <p class="card-topic">Quantum · Machine Learning · Hybrid Systems</p>
+            <h2 class="card-title">Quantum-Classical Hybrid ML Experiment</h2>
+            <p class="card-desc"><a href="https://pypi.org/project/amin-qvm/" target="_blank" rel="noopener">amin-qvm</a> as the quantum computation layer alongside a classical neural network. Benchmarks quantum vs. classical performance on structured tasks. Potentially the first publicly documented quantum-classical hybrid built by a solo developer under 18.</p>
+            <div class="card-meta"><span class="card-status status-planned">Planned</span></div>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="card-type-bar ai"></div>
+          <div class="card-body">
+            <p class="card-topic">AI · Retrieval-Augmented Generation · Evaluation Infrastructure</p>
+            <h2 class="card-title">RAG Pipeline with Eval Harness</h2>
+            <p class="card-desc">Retrieval-augmented generation over a real Arabic corpus (Quranic text, classical poetry). Includes a custom evaluation layer tracking retrieval precision, answer faithfulness, and hallucination rate. Deployed via FastAPI and Docker with structured logging and latency dashboards. DECISIONS.md included to document all architectural tradeoffs.</p>
+            <div class="card-meta"><span class="card-status status-planned">Planned</span></div>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="card-type-bar ai"></div>
+          <div class="card-body">
+            <p class="card-topic">NLP · Islamic Studies · Computational Humanities</p>
+            <h2 class="card-title">Quranic Stylometric NLP Pipeline</h2>
+            <p class="card-desc">Machine learning pipeline applying stylometric analysis to Quranic Arabic — authorship attribution, rhetorical structure detection, and intertextual cross-referencing. Intersects computational linguistics and Islamic manuscript tradition. Feeds directly into the RAG pipeline as a corpus source.</p>
+            <div class="card-meta"><span class="card-status status-research">Research</span></div>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="card-type-bar ai"></div>
+          <div class="card-body">
+            <p class="card-topic">AI · Fine-tuning · Low-Resource Languages</p>
+            <h2 class="card-title">Fine-tuned LLM on Niche Corpus</h2>
+            <p class="card-desc">Fine-tuned language model on classical Arabic poetry and Akkadian fragments — two severely underrepresented languages in existing training sets. Published to <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> with full training documentation and bias analysis.</p>
+            <div class="card-meta"><span class="card-status status-planned">Planned</span></div>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="card-type-bar ai"></div>
+          <div class="card-body">
+            <p class="card-topic">AI · Multilingual · Legal Technology</p>
+            <h2 class="card-title">Arabic-English Legal Document Translator</h2>
+            <p class="card-desc">LLM wrapper targeting MENA legal and business documents. Handles dialect variation, formal register, and jurisdiction-specific terminology. Addresses a real gap in the Arabic-speaking professional market with no comparable Arabic-language tooling at accessible price points.</p>
+            <div class="card-meta"><span class="card-status status-planned">Planned</span></div>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="card-type-bar ai"></div>
+          <div class="card-body">
+            <p class="card-topic">AI · LLM Evaluation</p>
+            <h2 class="card-title">LLM Output Evaluation Framework</h2>
+            <p class="card-desc">Lightweight, model-agnostic evaluation framework for scoring LLM outputs on faithfulness, relevance, and toxicity. Addresses one of the most actively unsolved problems in production AI deployment. Modular architecture designed for easy integration.</p>
+            <div class="card-meta"><span class="card-status status-planned">Planned</span></div>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="card-type-bar ai"></div>
+          <div class="card-body">
+            <p class="card-topic">AI · B2B · Competitive Intelligence</p>
+            <h2 class="card-title">Competitive Intelligence NLP Tool</h2>
+            <p class="card-desc">NLP pipeline over news feeds, public filings, and industry forums to map market trends and competitor signals. Modeled on enterprise tools like Quid — built as an accessible demo for small and mid-size businesses in MENA and US markets.</p>
+            <div class="card-meta"><span class="card-status status-planned">Planned</span></div>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="card-type-bar ai"></div>
+          <div class="card-body">
+            <p class="card-topic">AI · Privacy · Compliance Automation</p>
+            <h2 class="card-title">Privacy Compliance Automation Tool</h2>
+            <p class="card-desc">AI-assisted GDPR/CCPA/Iraqi data law compliance checker for small businesses. Targets the MENA market gap — a 28% CAGR space with almost no Arabic-language tooling currently available.</p>
+            <div class="card-meta"><span class="card-status status-planned">Planned</span></div>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="card-type-bar linguistics"></div>
+          <div class="card-body">
+            <p class="card-topic">Linguistics · Gender & Language · Community Tools</p>
+            <h2 class="card-title">Arabic Neopronoun System (انهف)</h2>
+            <p class="card-desc">Linguistically coherent Arabic neopronoun framework designed for community use. Grammatically rigorous, culturally considered, and published for MENA LGBTQ+ communities as a practical linguistic tool. Incorporates classical Arabic morphology to ensure grammatical compatibility with existing language use.</p>
+            <div class="card-meta"><span class="card-status status-research">Research</span></div>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="card-type-bar linguistics"></div>
+          <div class="card-body">
+            <p class="card-topic">Linguistics · Constructed Language · Digital Tools</p>
+            <h2 class="card-title">Sübaymüdüs Language Reference & Tooling</h2>
+            <p class="card-desc">Complete documentation site for an original constructed language with grammar, vocabulary, custom writing system, word generator, and translator. Built across seven handwritten notebooks over multiple years before being digitized. Android language pack and OS package planned.</p>
+            <div class="card-meta"><span class="card-status status-active">Active</span></div>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="card-type-bar biology"></div>
+          <div class="card-body">
+            <p class="card-topic">Synthetic Biology · CRISPR · Vegan Nutrition</p>
+            <h2 class="card-title">Chromosomal B12 Operon Integration in <em>E. coli</em></h2>
+            <p class="card-desc">Research proposal for stable B12 biosynthesis in <em>E. coli</em> Nissle 1917 via CRISPR. Proposes <em>Lactobacillus reuteri</em> as the optimal organism for replicating herbivore B12 synthesis pathways. Currently under community review at <a href="https://reclone.org" target="_blank" rel="noopener">Reclone.org</a>.</p>
+            <div class="card-meta"><span class="card-status status-review">Community Review</span></div>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="card-type-bar community"></div>
+          <div class="card-body">
+            <p class="card-topic">Community Infrastructure · Security · Human Rights</p>
+            <h2 class="card-title">Iraqi LGBTQ+ Resource Hub</h2>
+            <p class="card-desc">Anonymized, security-first resource platform for LGBTQ+ individuals in Iraq. XMPP + OMEMO encrypted backend. Phase 1 of a 10–20 year project modeled on the Castro movement — focused on making Iraq survivable for those who cannot or will not leave, not just facilitating departure. Managed from the US.</p>
+            <div class="card-meta"><span class="card-status status-active">Active</span></div>
+          </div>
+        </div>
+
+        <div class="research-card">
+          <div class="card-type-bar business"></div>
+          <div class="card-body">
+            <p class="card-topic">Web Design · AI Automation · MENA Market</p>
+            <h2 class="card-title">LocalWebIQ — AI-Powered Site Generation</h2>
+            <p class="card-desc">Automated website generation pipeline layered onto <a href="https://instagram.com/localwebiq" target="_blank" rel="noopener">LocalWebIQ LLC</a>'s existing subscription model. LLM-generated copy, layout selection, and image sourcing from a single client intake form. Founded at 15, actively serving Iraqi businesses. See <a href="https://github.com/iriszimmerfau" target="_blank" rel="noopener">GitHub</a> for related code.</p>
+            <div class="card-meta"><span class="card-status status-active">Active</span></div>
+          </div>
+        </div>
+
+      </div><!-- /all -->
+
+      <!-- QUANTUM -->
+      <div class="tab-panel" id="tab-quantum">
+        <div class="research-card"><div class="card-type-bar quantum"></div><div class="card-body"><p class="card-topic">Quantum Computing · Novel Simulation Method</p><h2 class="card-title">PFQVS — Perlin-Fourier Quantum State Simulation</h2><p class="card-desc">Novel technique using Perlin noise seeded with environmental derivatives as true-randomness approximation for quantum state simulation. More resource-efficient than IBM queued computers for small-to-medium tasks. Built on <a href="https://pypi.org/project/amin-qvm/" target="_blank" rel="noopener">amin-qvm</a>. In preparation for academic submission.</p><div class="card-meta"><span class="card-status status-research">In Submission</span></div></div></div>
+        <div class="research-card"><div class="card-type-bar quantum"></div><div class="card-body"><p class="card-topic">Quantum · Machine Learning · Hybrid Systems</p><h2 class="card-title">Quantum-Classical Hybrid ML Experiment</h2><p class="card-desc"><a href="https://pypi.org/project/amin-qvm/" target="_blank" rel="noopener">amin-qvm</a> as the quantum layer alongside a classical neural network. Benchmarks quantum vs. classical performance on structured tasks. Potentially the first publicly documented quantum-classical hybrid built by a solo developer under 18.</p><div class="card-meta"><span class="card-status status-planned">Planned</span></div></div></div>
+      </div>
+
+      <!-- AI -->
+      <div class="tab-panel" id="tab-ai">
+        <div class="research-card"><div class="card-type-bar ai"></div><div class="card-body"><p class="card-topic">AI · Retrieval · Evaluation</p><h2 class="card-title">RAG Pipeline with Eval Harness</h2><p class="card-desc">RAG over Arabic corpus with custom eval layer tracking retrieval precision, answer faithfulness, and hallucination rate. FastAPI + Docker deployment with structured logging and latency dashboards.</p><div class="card-meta"><span class="card-status status-planned">Planned</span></div></div></div>
+        <div class="research-card"><div class="card-type-bar ai"></div><div class="card-body"><p class="card-topic">NLP · Islamic Studies</p><h2 class="card-title">Quranic Stylometric NLP Pipeline</h2><p class="card-desc">Stylometric analysis of Quranic Arabic — authorship attribution, rhetorical structure detection, intertextual cross-referencing.</p><div class="card-meta"><span class="card-status status-research">Research</span></div></div></div>
+        <div class="research-card"><div class="card-type-bar ai"></div><div class="card-body"><p class="card-topic">AI · Fine-tuning · Low-Resource Languages</p><h2 class="card-title">Fine-tuned LLM on Niche Corpus</h2><p class="card-desc">Classical Arabic poetry and Akkadian fragments. Published to <a href="https://huggingface.co" target="_blank" rel="noopener">Hugging Face</a> with full documentation and bias analysis.</p><div class="card-meta"><span class="card-status status-planned">Planned</span></div></div></div>
+        <div class="research-card"><div class="card-type-bar ai"></div><div class="card-body"><p class="card-topic">AI · Multilingual · Legal</p><h2 class="card-title">Arabic-English Legal Document Translator</h2><p class="card-desc">LLM wrapper for MENA legal documents. Handles dialect variation, formal register, jurisdiction-specific terminology.</p><div class="card-meta"><span class="card-status status-planned">Planned</span></div></div></div>
+        <div class="research-card"><div class="card-type-bar ai"></div><div class="card-body"><p class="card-topic">AI · B2B · Intelligence</p><h2 class="card-title">Competitive Intelligence NLP Tool</h2><p class="card-desc">NLP pipeline over news feeds, public filings, and forums. Modeled on Quid — built for SMB accessibility.</p><div class="card-meta"><span class="card-status status-planned">Planned</span></div></div></div>
+        <div class="research-card"><div class="card-type-bar ai"></div><div class="card-body"><p class="card-topic">AI · Privacy · Compliance</p><h2 class="card-title">Privacy Compliance Automation Tool</h2><p class="card-desc">GDPR/CCPA/Iraqi data law compliance checker. Targets MENA market gap — 28% CAGR space with no Arabic-language tooling.</p><div class="card-meta"><span class="card-status status-planned">Planned</span></div></div></div>
+      </div>
+
+      <!-- LINGUISTICS -->
+      <div class="tab-panel" id="tab-linguistics">
+        <div class="research-card"><div class="card-type-bar linguistics"></div><div class="card-body"><p class="card-topic">Gender & Language · Community Tools</p><h2 class="card-title">Arabic Neopronoun System (انهف)</h2><p class="card-desc">Grammatically rigorous Arabic neopronoun framework incorporating classical Arabic morphology. Published for MENA LGBTQ+ communities as a practical linguistic tool.</p><div class="card-meta"><span class="card-status status-research">Research</span></div></div></div>
+        <div class="research-card"><div class="card-type-bar linguistics"></div><div class="card-body"><p class="card-topic">Constructed Language · Digital Tooling</p><h2 class="card-title">Sübaymüdüs Language Reference & Tooling</h2><p class="card-desc">Original constructed language with grammar, vocabulary, custom writing system, word generator, and translator. Seven handwritten notebooks digitized. Android language pack and OS package planned. Code on <a href="https://github.com/iriszimmerfau" target="_blank" rel="noopener">GitHub</a>.</p><div class="card-meta"><span class="card-status status-active">Active</span></div></div></div>
+      </div>
+
+      <!-- APPLIED -->
+      <div class="tab-panel" id="tab-applied">
+        <div class="research-card"><div class="card-type-bar biology"></div><div class="card-body"><p class="card-topic">Synthetic Biology · CRISPR</p><h2 class="card-title">Chromosomal B12 Operon Integration in <em>E. coli</em></h2><p class="card-desc">Stable B12 biosynthesis in <em>E. coli</em> Nissle 1917 via CRISPR. Proposes <em>Lactobacillus reuteri</em> as optimal organism. Community review at <a href="https://reclone.org" target="_blank" rel="noopener">Reclone.org</a>.</p><div class="card-meta"><span class="card-status status-review">Community Review</span></div></div></div>
+        <div class="research-card"><div class="card-type-bar community"></div><div class="card-body"><p class="card-topic">Community Infrastructure · Human Rights</p><h2 class="card-title">Iraqi LGBTQ+ Resource Hub</h2><p class="card-desc">Security-first platform with XMPP + OMEMO backend. Phase 1 of a 10–20 year project modeled on the Castro movement. Focus: making Iraq survivable.</p><div class="card-meta"><span class="card-status status-active">Active</span></div></div></div>
+        <div class="research-card"><div class="card-type-bar business"></div><div class="card-body"><p class="card-topic">Web Design · AI Automation</p><h2 class="card-title">LocalWebIQ — AI-Powered Site Generation</h2><p class="card-desc">LLM-powered site generation for Iraqi businesses. Founded at 15, actively operating. <a href="https://github.com/iriszimmerfau" target="_blank" rel="noopener">GitHub</a>.</p><div class="card-meta"><span class="card-status status-active">Active</span></div></div></div>
+      </div>
+
+    </section>
+  </main>
+
+  <aside class="sidebar">
+    <div class="sidebar-sticky">
+      <div class="sidebar-block">
+        <h3>By Status</h3>
+        <ul class="contact-list">
+          <li><span class="label">Active</span><span>3 projects</span></li>
+          <li><span class="label">Research</span><span>4 projects</span></li>
+          <li><span class="label">Planned</span><span>7 projects</span></li>
+          <li><span class="label">In Review</span><span>1 project</span></li>
+        </ul>
+      </div>
+      <div class="sidebar-block">
+        <h3>By Field</h3>
+        <ul class="contact-list">
+          <li><span style="display:inline-block;width:8px;height:8px;background:var(--navy);margin-right:0.4rem;"></span>Quantum</li>
+          <li><span style="display:inline-block;width:8px;height:8px;background:var(--blue-accent);margin-right:0.4rem;"></span>AI & Machine Learning</li>
+          <li><span style="display:inline-block;width:8px;height:8px;background:#7b4f9e;margin-right:0.4rem;"></span>Linguistics</li>
+          <li><span style="display:inline-block;width:8px;height:8px;background:#2e7d32;margin-right:0.4rem;"></span>Biology</li>
+          <li><span style="display:inline-block;width:8px;height:8px;background:#c41230;margin-right:0.4rem;"></span>Business</li>
+          <li><span style="display:inline-block;width:8px;height:8px;background:#c47d00;margin-right:0.4rem;"></span>Community</li>
+        </ul>
+      </div>
+      <div class="sidebar-block">
+        <h3>Code</h3>
+        <p class="bio-text" style="font-size:0.82rem;">Most projects have associated code repositories. Find them at:</p>
+        <a href="https://github.com/iriszimmerfau" target="_blank" rel="noopener" style="font-size:0.82rem;font-weight:600;color:var(--navy);">github.com/iriszimmerfau →</a>
+      </div>
+    </div>
+  </aside>
+
+</div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <p class="footer-name">Iris Zimmerfrau</p>
+      <p class="footer-tagline">Researcher · Developer · Founder · San Francisco</p>
+      <p class="footer-copy">© 2026</p>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="publications.html">Publications</a>
+      <a href="software.html">Software</a>
+      <a href="background.html">Background</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function switchTab(el, id) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('tab-' + id).classList.add('active');
+}
+</script>
+</body>
+</html>

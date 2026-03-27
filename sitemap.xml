@@ -1,40 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+>
+  <!--
+    MAINTENANCE NOTES:
+    - Update <lastmod> whenever you deploy changes to that page. Google uses
+      this as its primary signal for re-crawl priority. Stale or fictional
+      dates will cause Google to distrust and eventually ignore lastmod entirely.
+    - <changefreq> and <priority> are omitted intentionally — Google, Bing,
+      and Yandex all ignore them. They add bytes and create a false sense of
+      control. See: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
+    - If you add pages, add them here. If you remove pages, remove them here
+      AND set up a 301 redirect or return 410 Gone.
+    - Submit this sitemap to Google Search Console and Bing Webmaster Tools.
+    - Reference this file in robots.txt:  Sitemap: https://iriszf.com/sitemap.xml
+  -->
 
   <url>
-    <loc>https://iriszimmerfrau.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://iriszf.com/</loc>
+    <lastmod>2026-03-27</lastmod>
   </url>
 
   <url>
-    <loc>https://iriszimmerfrau.com/research.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://iriszf.com/research.html</loc>
+    <lastmod>2026-03-27</lastmod>
+    <!-- High-value page: 14 project entries with structured data -->
   </url>
 
   <url>
-    <loc>https://iriszimmerfrau.com/publications.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://iriszf.com/publications.html</loc>
+    <lastmod>2026-03-27</lastmod>
   </url>
 
   <url>
-    <loc>https://iriszimmerfrau.com/software.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
+    <loc>https://iriszf.com/software.html</loc>
+    <lastmod>2026-03-27</lastmod>
   </url>
 
   <url>
-    <loc>https://iriszimmerfrau.com/background.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <loc>https://iriszf.com/background.html</loc>
+    <lastmod>2026-03-27</lastmod>
   </url>
 
   <url>
-    <loc>https://iriszimmerfrau.com/contact.html</loc>
-    <changefreq>yearly</changefreq>
-    <priority>0.6</priority>
+    <loc>https://iriszf.com/contact.html</loc>
+    <lastmod>2026-03-27</lastmod>
   </url>
 
 </urlset>

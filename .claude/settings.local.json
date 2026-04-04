@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -rn \"iriszimmerfrau\\\\.com\\\\|iris-alogaili\\\\|iriszimmerfau[^r]\\\\|Implementtion\\\\|0, 0, 196\\\\|psi-neopronouns\\\\.vercel\\\\.app/#\\\\|irisalogaili-92bb02174\" *.html)"
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+import type { PricingPackage, OneTimeService } from '@/types';
+
+export const monthlyPackages: PricingPackage[] = [
+  {
+    name: 'Starter Systems',
+    tagline: 'Best for small businesses that need basic operational support.',
+    price: '$450',
+    period: '/month',
+    features: [
+      'Monthly bookkeeping support',
+      'Basic financial reporting',
+      'One simple automation workflow',
+      'Monthly strategy check-in',
+    ],
+    highlighted: false,
+    cta: 'Schedule a Meeting',
+    href: '/book-meeting',
+  },
+  {
+    name: 'Growth Systems',
+    tagline: 'Best for service businesses that want more leads and less admin.',
+    price: '$950',
+    period: '/month',
+    features: [
+      'Bookkeeping support',
+      'CRM setup or support',
+      'Marketing automation',
+      'AI lead follow-up',
+      'GEO/SEO recommendations',
+      'Monthly reporting',
+    ],
+    highlighted: true,
+    cta: 'Schedule a Meeting',
+    href: '/book-meeting',
+  },
+  {
+    name: 'Automation Pro',
+    tagline: 'Best for businesses ready to automate operations seriously.',
+    price: '$1,500',
+    period: '/month',
+    features: [
+      'Custom AI agent',
+      'AI phone answering agent setup',
+      'Workflow automation',
+      'CRM integration',
+      'Bookkeeping support',
+      'Monthly optimization',
+    ],
+    highlighted: false,
+    cta: 'Schedule a Meeting',
+    href: '/book-meeting',
+  },
+  {
+    name: 'Full Business Systems',
+    tagline: 'Best for businesses that want a done-for-you operating system.',
+    price: '$2,500',
+    period: '/month',
+    features: [
+      'AI agents',
+      'AI phone receptionist',
+      'CRM and sales pipeline',
+      'Bookkeeping systems',
+      'GEO/SEO',
+      'Website or landing page support',
+      'Marketing automation',
+      'Reporting dashboard',
+      'Ongoing consulting',
+    ],
+    highlighted: false,
+    cta: 'Schedule a Meeting',
+    href: '/book-meeting',
+  },
+];
+
+export const oneTimeServices: OneTimeService[] = [
+  { name: 'AI Business Operations Audit', price: '$350', description: 'Comprehensive review of your operations with automation and AI recommendations.' },
+  { name: 'QuickBooks Setup & Cleanup', price: '$650', description: 'Full QuickBooks Online configuration, cleanup, and reporting setup.' },
+  { name: 'Workflow Automation Setup', price: '$750', description: 'Design and build automated workflows connecting your business tools.' },
+  { name: 'Custom AI Agent Setup', price: '$850', description: 'Build and deploy a custom AI agent for your website or internal operations.' },
+  { name: 'GEO Optimization Audit', price: '$850', description: 'Audit and strategy for AI search engine visibility across ChatGPT, Perplexity, and more.' },
+  { name: 'AI Phone Answering Agent Setup', price: '$950', description: 'Configure and deploy an AI phone answering agent for your business.' },
+  { name: 'Website / Landing Page Buildout', price: '$1,200', description: 'Conversion-focused website or landing page with SEO, GEO, and booking integration.' },
+];

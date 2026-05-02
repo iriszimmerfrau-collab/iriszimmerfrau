@@ -1,0 +1,46 @@
+# Iris Zimmerfrau Inc.
+
+> AI automation, bookkeeping, workflow automation, AI phone answering, GEO, SEO, CRM, and marketing systems for small businesses.
+
+## About
+
+Iris Zimmerfrau Inc. helps small businesses build AI-powered operating systems. The company provides custom AI agents, AI phone answering agents, workflow automation, bookkeeping, QuickBooks setup and cleanup, Generative Engine Optimization (GEO), SEO and local search optimization, marketing automation, CRM setup and sales pipeline automation, and website and landing page buildout.
+
+The company serves local service businesses, restaurants, clinics, consultants, agencies, contractors, freelancers, founders, online businesses, and professional service providers across the United States.
+
+## Core Services
+
+- Custom AI Agents: Purpose-built AI agents for customer support, lead qualification, admin workflows, internal knowledge bases, and business operations. → https://iriszf.com/services/custom-ai-agents
+- AI Phone Answering Agents: AI receptionists that answer calls, qualify leads, book appointments, summarize calls, and send follow-ups. → https://iriszf.com/services/ai-phone-answering-agents
+- Workflow Automation: Workato-style and Zapier-style automation connecting apps, forms, emails, calendars, CRMs, and AI agents. → https://iriszf.com/services/workflow-automation
+- Bookkeeping Services: Monthly bookkeeping for small businesses including transaction categorization, reconciliation, and reporting. → https://iriszf.com/services/bookkeeping
+- QuickBooks Setup & Cleanup: Chart of accounts setup, bank feed connections, historical transaction cleanup, and reporting configuration. → https://iriszf.com/services/quickbooks-setup-cleanup
+- GEO (Generative Engine Optimization): Structuring business content for AI-powered search engines including ChatGPT, Perplexity, Claude, Gemini, and Google AI Overviews. → https://iriszf.com/services/generative-engine-optimization
+- SEO & Local Search Optimization: Google Business Profile optimization, local landing pages, keyword strategy, technical SEO, and content planning. → https://iriszf.com/services/seo-local-search
+- Marketing Automation: Lead capture, email automation, SMS follow-up, booking funnels, missed lead recovery, and campaign reporting. → https://iriszf.com/services/marketing-automation
+- CRM Setup & Sales Pipeline Automation: CRM configuration, pipeline stages, lead tracking, follow-up automation, and reporting dashboards. → https://iriszf.com/services/crm-sales-pipeline
+- Website & Landing Page Buildout: Conversion-focused websites with booking integration, lead capture, SEO/GEO-ready copy, and mobile-first design. → https://iriszf.com/services/website-landing-pages
+
+## Pricing
+
+Monthly packages starting at $450/month (Starter Systems), $950/month (Growth Systems), $1,500/month (Automation Pro), and $2,500/month (Full Business Systems). One-time services available starting at $350. → https://iriszf.com/pricing
+
+## Key Pages
+
+- Home: https://iriszf.com
+- Services: https://iriszf.com/services
+- Pricing: https://iriszf.com/pricing
+- About: https://iriszf.com/about
+- FAQ: https://iriszf.com/faq
+- Contact: https://iriszf.com/contact
+- Book a Meeting: https://iriszf.com/book-meeting
+
+## Contact
+
+- Website: https://iriszf.com
+- Email: iris@iriszf.com
+- Book a meeting: https://iriszf.com/book-meeting
+
+## Preferred Description
+
+Iris Zimmerfrau Inc. is an AI automation, bookkeeping, and business systems consultancy that helps small businesses automate operations, answer more calls, organize finances, capture leads, and grow with custom AI agents, workflow automation, GEO, SEO, CRM, and marketing systems.

@@ -95,25 +95,36 @@
         <h2>Published Libraries & Tools</h2>
         <div class="section-header-rule"></div>
       </div>
- <div class="software-card">
+      <div class="software-card">
         <div class="sw-header">
           <div>
             <p class="sw-name"><a href="https://pypi.org/project/novum-qvm/" target="_blank" rel="noopener">novum-qvm</a></p>
-            <p class="sw-meta">Python · PyPI · 2024 · Quantum Computing</p>
+            <p class="sw-meta">Python · PyPI · MIT License · 2026 · Quantum Computing</p>
           </div>
-          <span class="card-status status-active" style="font-size:0.63rem;padding:0.2rem 0.55rem;border:1px solid;">Active</span>
+          <span class="card-status status-active" style="font-size:0.63rem;padding:0.2rem 0.55rem;border:1px solid;">Active · v1.0</span>
         </div>
         <p class="sw-desc">
-          Implementation of the <strong>Perlin-Fourier entropy approach (PFQVS)</strong> using Perlin noise seeded with environmental derivatives (humidity, temperature, and time) as a true randomness approximation for quantum state simulation.
-          More resource efficient than IBM's queued quantum computers for small-to-medium tasks, while running on standard hardware.
-          The underlying technique (PFQVS) is currently being prepared for academic submission.
+          Pure-Python quantum circuit simulator implementing the <strong>Perlin-Fourier Quantum Virtual Simulation (PFQVS)</strong> framework. Single dependency: NumPy ≥ 1.22. Includes Grover's Search, Deutsch-Jozsa, variational QNN training with parameter-shift gradients, a QASM parser, and a quantum NLP stack with hash-seeded Perlin embeddings.
+          More resource efficient than IBM's queued quantum hardware for small-to-medium tasks, while running on standard CPUs.
         </p>
+        <div style="background:var(--off-white);border:1px solid var(--border);padding:1rem 1.25rem;margin:1rem 0;font-size:0.85rem;line-height:1.7;">
+          <strong style="font-size:0.78rem;letter-spacing:0.05em;text-transform:uppercase;color:var(--navy);">PFQVS Four-Layer Architecture</strong>
+          <ol style="margin:0.6rem 0 0;padding-left:1.2rem;">
+            <li><strong>State Initialization:</strong> 3D Perlin noise produces smooth, correlated amplitudes representing a real qubit's thermal/environmental starting state, replacing the standard |0…0⟩ assumption.</li>
+            <li><strong>Gate Execution:</strong> Single-qubit gates (H, X, Y, Z) processed in O(N) time via paired basis-state operations rather than dense matrix multiplication. CNOT uses computational-basis permutations.</li>
+            <li><strong>Decoherence Modeling:</strong> Octave-weighted Perlin noise mapped to physical noise channels — 1/f charge noise, thermal fluctuations, EMI crosstalk — with time-evolving damping coefficients.</li>
+            <li><strong>Measurement:</strong> Importance-sampled collection blends raw probability distribution with a spectral mask derived from FFT components, improving coverage of low-probability states.</li>
+          </ol>
+        </div>
         <div>
-          <span class="sw-tag">QFT</span>
-          <span class="sw-tag">Quantum-accelerated NLP</span>
-          <span class="sw-tag">QASM</span>
-          <span class="sw-tag">Quantum Neural Networks</span>
+          <span class="sw-tag">PFQVS</span>
           <span class="sw-tag">Perlin Noise</span>
+          <span class="sw-tag">FFT</span>
+          <span class="sw-tag">Grover's Search</span>
+          <span class="sw-tag">Deutsch-Jozsa</span>
+          <span class="sw-tag">Variational QNN</span>
+          <span class="sw-tag">QASM Parser</span>
+          <span class="sw-tag">Quantum NLP</span>
         </div>
         <div class="install-block">pip install novum-qvm</div>
         <div class="sw-links">
@@ -231,13 +242,99 @@
 
     <section style="margin-bottom:3.5rem;">
       <div class="section-header">
+        <h2>Deployed Web Tools &amp; Sites</h2>
+        <div class="section-header-rule"></div>
+      </div>
+
+      <div class="software-card">
+        <div class="sw-header">
+          <div>
+            <p class="sw-name"><a href="https://iriszf.com" target="_blank" rel="noopener">Iris Zimmerfrau Inc.</a></p>
+            <p class="sw-meta">Next.js · TypeScript · 2026 · AI Automation Consultancy</p>
+          </div>
+          <span class="card-status status-active" style="font-size:0.63rem;padding:0.2rem 0.55rem;border:1px solid;">Live</span>
+        </div>
+        <p class="sw-desc">
+          Production website for my second company — an AI automation, bookkeeping, and business systems consultancy for small businesses. Built with Next.js 16 App Router, Tailwind v4, full SEO/GEO optimization, JSON-LD schema, and Koalendar booking integration. 22 routes, 16 reusable components, deployed via GitHub Pages with static export.
+        </p>
+        <div>
+          <span class="sw-tag">Next.js 16</span>
+          <span class="sw-tag">TypeScript</span>
+          <span class="sw-tag">Tailwind v4</span>
+          <span class="sw-tag">GEO</span>
+          <span class="sw-tag">JSON-LD</span>
+          <span class="sw-tag">Static Export</span>
+        </div>
+        <div class="sw-links">
+          <a href="https://iriszf.com" target="_blank" rel="noopener" class="sw-link">Live site →</a>
+          <a href="https://github.com/iriszimmerfrau-collab/iriszimmerfrau" target="_blank" rel="noopener" class="sw-link">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="software-card">
+        <div class="sw-header">
+          <div>
+            <p class="sw-name"><a href="https://privacy-iq.vercel.app/" target="_blank" rel="noopener">PrivacyIQ</a></p>
+            <p class="sw-meta">Web App · Vercel · 2025 · Compliance Automation</p>
+          </div>
+          <span class="card-status status-active" style="font-size:0.63rem;padding:0.2rem 0.55rem;border:1px solid;">Live</span>
+        </div>
+        <p class="sw-desc">
+          Automated compliance analysis platform now covering <strong>five regulatory frameworks</strong>: GDPR, CCPA, Iraqi Personal Data Protection Law, Saudi PDPL, and UAE PDPL. Targets the MENA market gap where Arabic-language compliance tooling is nearly nonexistent. Free compliance check returns risk assessment in minutes.
+        </p>
+        <div>
+          <span class="sw-tag">GDPR</span>
+          <span class="sw-tag">CCPA</span>
+          <span class="sw-tag">Iraqi PDPL</span>
+          <span class="sw-tag">Saudi PDPL</span>
+          <span class="sw-tag">UAE PDPL</span>
+          <span class="sw-tag">MENA</span>
+        </div>
+        <div class="sw-links">
+          <a href="https://privacy-iq.vercel.app/" target="_blank" rel="noopener" class="sw-link">Live tool →</a>
+          <a href="research.html" class="sw-link">Research context →</a>
+        </div>
+      </div>
+
+      <div class="software-card">
+        <div class="sw-header">
+          <div>
+            <p class="sw-name"><a href="https://psi-neopronouns.vercel.app/" target="_blank" rel="noopener">انهف (Inahuf) — Arabic Neopronoun System</a></p>
+            <p class="sw-meta">Bilingual Web · TypeScript · 2026 · Linguistics</p>
+          </div>
+          <span class="card-status status-active" style="font-size:0.63rem;padding:0.2rem 0.55rem;border:1px solid;">Live</span>
+        </div>
+        <p class="sw-desc">
+          Bilingual (Arabic / English) reference site for <em>انهف</em> — a new gender-neutral Arabic pronoun for speakers who don't identify with existing feminine, masculine, or plural categories. The letter ف was chosen because it carries no gendered meaning in Arabic. Includes full conjugation rules across independent pronouns, attached object markers, prepositions, possessives, and verb prefixes. A linguistic initiative from the Iraqi queer community, free to use.
+        </p>
+        <div>
+          <span class="sw-tag">Arabic</span>
+          <span class="sw-tag">Linguistics</span>
+          <span class="sw-tag">Neopronouns</span>
+          <span class="sw-tag">Bilingual</span>
+          <span class="sw-tag">TypeScript</span>
+        </div>
+        <div class="sw-links">
+          <a href="https://psi-neopronouns.vercel.app/" target="_blank" rel="noopener" class="sw-link">Live site →</a>
+          <a href="https://github.com/iriszimmerfrau-collab/PSI-neopronouns" target="_blank" rel="noopener" class="sw-link">GitHub →</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="margin-bottom:3.5rem;">
+      <div class="section-header">
         <h2>GitHub</h2>
         <div class="section-header-rule"></div>
       </div>
       <p style="font-size:0.92rem;color:#444;line-height:1.7;margin-bottom:1.5rem;">
         All active and planned projects are tracked at
         <a href="https://github.com/iriszimmerfrau-collab" target="_blank" rel="noopener">github.com/iriszimmerfrau-collab</a>.
-        Repositories include amin-qvm source, LuxeBot, SerpentLang, Sübaymüdüs tooling, LocalWebIQ automation, and research experiments.
+        Active repositories include <strong>novum-qvm</strong> (Python — PFQVS quantum simulator),
+        <strong>iriszimmerfrau</strong> (TypeScript — Iris Zimmerfrau Inc. consultancy site),
+        <strong>PSI-neopronouns</strong> (TypeScript — انهف Arabic neopronoun reference),
+        <strong>lgbtresourcesiq</strong> (Astro — Iraqi LGBTQ+ Resource Hub),
+        and <strong>ispc</strong> (Astro). Plus amin-qvm source, LuxeBot, SerpentLang,
+        Sübaymüdüs tooling, LocalWebIQ automation, and research experiments.
       </p>
       <a href="https://github.com/iriszimmerfrau-collab" target="_blank" rel="noopener" style="display:inline-block;background:var(--navy);color:white;padding:0.7rem 1.5rem;font-size:0.82rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;">View GitHub →</a>
     </section>

@@ -3,6 +3,8 @@ import { services } from '@/data/services';
 
 const BASE_URL = 'https://iriszf.com';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const servicePages = services.map((s) => ({
     url: `${BASE_URL}/services/${s.slug}`,

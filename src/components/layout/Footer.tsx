@@ -9,8 +9,17 @@ export default function Footer() {
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="text-lg font-bold text-white">
-              {siteConfig.name}
+            <Link href="/" className="flex items-center gap-2.5" aria-label={`${siteConfig.name} home`}>
+              <span
+                aria-hidden="true"
+                className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-500 text-sm font-black tracking-tight text-white"
+                style={{ letterSpacing: '-0.04em' }}
+              >
+                ZF
+              </span>
+              <span className="text-base font-bold text-white">
+                {siteConfig.name}
+              </span>
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-gray-400">
               {siteConfig.tagline}

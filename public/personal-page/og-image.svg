@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="Iris Zimmerfrau — Quantum Computing Researcher, Developer, and Founder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a1744"/>
+      <stop offset="0.5" stop-color="#272566"/>
+      <stop offset="1" stop-color="#312e81"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+
+  <!-- Brand mark -->
+  <g transform="translate(80,80)">
+    <rect width="96" height="96" rx="20" fill="#5145CD"/>
+    <text x="48" y="68" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="56" font-weight="900" fill="#FFFFFF" text-anchor="middle" letter-spacing="-2">ZF</text>
+  </g>
+  <text x="200" y="125" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="28" font-weight="600" fill="#FFFFFF" letter-spacing="-0.5">Iris Zimmerfrau</text>
+  <text x="200" y="155" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#a5b4fc">iriszf.com/personal-page</text>
+
+  <!-- Headline -->
+  <text x="80" y="380" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="64" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Quantum Computing.</text>
+  <text x="80" y="455" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="64" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Linguistics. Software.</text>
+
+  <!-- Tagline -->
+  <text x="80" y="525" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#c7d2fe">Independent researcher · Developer · Founder · San Francisco</text>
+
+  <!-- Tags -->
+  <text x="80" y="580" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#a5b4fc">novum-qvm · PFQVS · 2 books · 3 papers · 2 companies founded · 17 years old</text>
+</svg>

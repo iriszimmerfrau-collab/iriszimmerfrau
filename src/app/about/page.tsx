@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { createMetadata } from '@/lib/metadata';
 import { siteConfig } from '@/data/site';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
@@ -37,18 +38,57 @@ const whoWeHelp = [
 ];
 
 export default function AboutPage() {
-  const orgLd = {
+  const aboutPageLd = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: siteConfig.name,
-    url: siteConfig.url,
-    email: siteConfig.email,
-    description: siteConfig.description,
+    '@type': 'AboutPage',
+    name: 'About Iris Zimmerfrau Inc.',
+    url: `${siteConfig.url}/about`,
+    description:
+      'About Iris Zimmerfrau Inc. — an AI automation, bookkeeping, and business systems consultancy for small businesses, founded in 2026 by Iris Zimmerfrau.',
+    mainEntity: {
+      '@id': `${siteConfig.url}/#organization`,
+    },
+  };
+
+  const founderLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Iris Zimmerfrau',
+    alternateName: 'Amin Alogaili',
+    url: `${siteConfig.url}/personal-page/`,
+    jobTitle: 'Founder & Operator',
+    worksFor: { '@id': `${siteConfig.url}/#organization` },
+    knowsAbout: [
+      'AI Automation',
+      'Custom AI Agents',
+      'AI Phone Answering',
+      'Workflow Automation',
+      'Bookkeeping',
+      'QuickBooks',
+      'Generative Engine Optimization',
+      'SEO',
+      'CRM Setup',
+      'Marketing Automation',
+      'Quantum Computing',
+      'Computational Linguistics',
+      'Python',
+      'Arabic',
+      'German',
+    ],
+    sameAs: [
+      'https://www.linkedin.com/in/iris-zimmerfrau-92bb02174/',
+      'https://github.com/iriszimmerfrau-collab',
+      'https://independent.academia.edu/AminAlogaili',
+      'https://pypi.org/project/novum-qvm/',
+      'https://pypi.org/project/amin-qvm/',
+      `${siteConfig.url}/personal-page/`,
+    ],
   };
 
   return (
     <>
-      <JsonLd data={orgLd} />
+      <JsonLd data={aboutPageLd} />
+      <JsonLd data={founderLd} />
       <Breadcrumbs items={[{ label: 'About', href: '/about' }]} />
 
       <Hero
@@ -62,13 +102,20 @@ export default function AboutPage() {
           <SectionHeading eyebrow="Our Mission" title="Systems That Save Time and Drive Growth" />
           <div className="mt-8 space-y-4 text-base leading-relaxed text-gray-700">
             <p>
-              Iris Zimmerfrau Inc. was founded to solve a problem that most small businesses face: too many manual processes, disconnected tools, missed leads, messy books, and an online presence that does not reflect the quality of the business.
+              Iris Zimmerfrau Inc. is an AI automation, bookkeeping, and business systems consultancy founded in 2026 by Iris Zimmerfrau. We help small businesses build practical AI-powered operating systems that save time, capture leads, and clean up day-to-day operations.
             </p>
             <p>
               We combine AI automation, workflow integration, bookkeeping, CRM setup, marketing automation, and search visibility (both traditional SEO and Generative Engine Optimization) into connected systems that help businesses operate more efficiently and grow more predictably.
             </p>
             <p>
-              Our approach is practical. We do not sell vague AI promises. We build systems around how your business actually works — then automate the repetitive parts, organize the financials, and make the business easier to discover online.
+              Our approach is practical. We do not sell vague AI promises. We build systems around how your business actually works — then automate the repetitive parts, organize the financials, and make the business easier to discover online by both search engines and AI answer engines like ChatGPT, Perplexity, and Google AI Overviews.
+            </p>
+            <p className="text-sm text-gray-500">
+              Founder background:{' '}
+              <Link href="/personal-page/" className="text-brand-600 hover:underline">
+                Read about Iris Zimmerfrau
+              </Link>
+              {' '}— quantum computing researcher, software developer, published author, and founder of two companies.
             </p>
           </div>
         </div>

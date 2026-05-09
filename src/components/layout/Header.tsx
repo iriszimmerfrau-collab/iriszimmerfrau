@@ -12,8 +12,17 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
-        <Link href="/" className="text-lg font-bold text-gray-900 sm:text-xl">
-          {siteConfig.name}
+        <Link href="/" className="flex items-center gap-2.5" aria-label={`${siteConfig.name} home`}>
+          <span
+            aria-hidden="true"
+            className="flex h-9 w-9 items-center justify-center rounded-lg bg-brand-500 text-sm font-black tracking-tight text-white"
+            style={{ letterSpacing: '-0.04em' }}
+          >
+            ZF
+          </span>
+          <span className="text-base font-bold text-gray-900 sm:text-lg">
+            {siteConfig.name}
+          </span>
         </Link>
 
         {/* Desktop nav */}

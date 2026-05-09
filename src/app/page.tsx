@@ -47,41 +47,75 @@ const whyUs = [
 ];
 
 export default function HomePage() {
-  const orgLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: siteConfig.name,
-    url: siteConfig.url,
-    email: siteConfig.email,
-    description: siteConfig.description,
-  };
-
   const professionalServiceLd = {
     '@context': 'https://schema.org',
     '@type': 'ProfessionalService',
+    '@id': `${siteConfig.url}/#service`,
     name: siteConfig.name,
     url: siteConfig.url,
     email: siteConfig.email,
+    image: `${siteConfig.url}/og-default.svg`,
+    logo: `${siteConfig.url}/logo.svg`,
     description:
       'AI automation, bookkeeping, workflow automation, AI phone answering, GEO, SEO, CRM, and marketing systems for small businesses.',
+    slogan: siteConfig.tagline,
     serviceType: [
       'AI Automation',
-      'Bookkeeping',
+      'Custom AI Agents',
+      'AI Phone Answering',
       'Workflow Automation',
+      'Bookkeeping',
+      'QuickBooks Setup',
+      'Generative Engine Optimization',
+      'SEO',
       'Marketing Automation',
       'CRM Setup',
-      'Generative Engine Optimization',
       'Business Operations Consulting',
     ],
     areaServed: { '@type': 'Country', name: 'United States' },
+    knowsAbout: [
+      'AI automation for small business',
+      'AI phone answering agents',
+      'workflow automation',
+      'bookkeeping services',
+      'QuickBooks setup and cleanup',
+      'generative engine optimization',
+      'SEO and local search optimization',
+      'marketing automation',
+      'CRM setup and sales pipeline automation',
+      'website and landing page buildout',
+    ],
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'Services offered by Iris Zimmerfrau Inc.',
+      itemListElement: services.map((s) => ({
+        '@type': 'Offer',
+        itemOffered: {
+          '@type': 'Service',
+          name: s.title,
+          description: s.description,
+          url: `${siteConfig.url}/services/${s.slug}`,
+        },
+      })),
+    },
   };
 
   const previewFaqs = globalFaqs.slice(0, 5);
 
+  const homeFaqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: previewFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.question,
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
+    })),
+  };
+
   return (
     <>
-      <JsonLd data={orgLd} />
       <JsonLd data={professionalServiceLd} />
+      <JsonLd data={homeFaqLd} />
 
       {/* Hero */}
       <section className="bg-gradient-to-br from-brand-950 via-brand-900 to-brand-800 px-4 py-20 text-white sm:px-6 sm:py-28 lg:px-8 lg:py-36">

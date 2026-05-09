@@ -1,3 +1,6 @@
+# Sub-site robots.txt
+# The authoritative robots.txt is at https://iriszf.com/robots.txt
+# This file exists for backward compatibility with older crawlers that fetched it.
 User-agent: *
 Allow: /
 

@@ -6,7 +6,22 @@
       "Bash(npm run *)",
       "Bash(git branch *)",
       "Bash(git remote *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git fetch *)",
+      "Bash(git ls-tree *)",
+      "Bash(gh workflow *)",
+      "Bash(git commit *)",
+      "WebSearch",
+      "WebFetch(domain:pypi.org)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:www.linkedin.com)",
+      "WebFetch(domain:privacy-iq.vercel.app)",
+      "WebFetch(domain:psi-neopronouns.vercel.app)",
+      "WebFetch(domain:medium.com)",
+      "WebFetch(domain:meritpages.com)",
+      "WebFetch(domain:iriszf.com)"
     ]
   }
 }

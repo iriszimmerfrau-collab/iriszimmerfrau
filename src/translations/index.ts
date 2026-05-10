@@ -116,6 +116,36 @@ interface Strings {
     readyText: string;
   };
   faq: { heroTitle: string; heroSubtitle: string; ctaTitle: string; ctaText: string };
+  careers: {
+    heroTitle: string;
+    heroIntro: string;
+    heroBias: string;
+    nowHiring: string;
+    openRolesTitle: string;
+    openRolesOne: string;
+    openRolesMany: (n: number) => string;
+    viewRole: string;
+    locationLabel: string;
+    typeLabel: string;
+    departmentLabel: string;
+    notRightTitle: string;
+    notRightText: string;
+    emailUsLabel: string;
+    compensation: string;
+    applicationsGoTo: string;
+    aboutTitle: string;
+    whatYoullDo: string;
+    evaluationTitle: string;
+    dayOneTitle: string;
+    fitYesTitle: string;
+    fitNoTitle: string;
+    neverAskTitle: string;
+    reportConcerns: string;
+    howToApplyTitle: string;
+    noteLabel: string;
+    whatsappOpensNote: string;
+    backToAll: string;
+  };
   notFound: { title: string; text: string };
 }
 
@@ -362,6 +392,40 @@ export const translations: { en: Strings; ar: Strings } = {
         'Answers to common questions about our AI automation, bookkeeping, workflow, GEO, SEO, CRM, and marketing services.',
       ctaTitle: 'Have more questions?',
       ctaText: 'Schedule a meeting or email us directly and we will be happy to help.',
+    },
+    careers: {
+      heroTitle: 'Careers at Iris Zimmerfrau Inc.',
+      heroIntro:
+        'We build AI-powered business systems for small businesses — custom AI agents, AI phone answering, workflow automation, bookkeeping, CRM, GEO, SEO, and marketing automation. We’re hiring people who care about real outcomes for real businesses and who want to operate inside a small, fast-moving team.',
+      heroBias:
+        'If you’re organized, self-motivated, and biased toward doing the work rather than talking about it, you’ll thrive here.',
+      nowHiring: 'Now Hiring',
+      openRolesTitle: 'Open Roles',
+      openRolesOne: 'One role is currently open. More positions will be added as we grow.',
+      openRolesMany: (n: number) => `${n} roles are currently open.`,
+      viewRole: 'View role',
+      locationLabel: 'Location',
+      typeLabel: 'Type',
+      departmentLabel: 'Department',
+      notRightTitle: 'Not the right role for you?',
+      notRightText:
+        'We’re a growing team and we add roles regularly. Reach out if you think your skills fit the work we do.',
+      emailUsLabel: 'Email',
+      compensation: 'Compensation',
+      applicationsGoTo: 'Applications go to Biri, Sales Development Manager.',
+      aboutTitle: 'About the role',
+      whatYoullDo: 'What you’ll do',
+      evaluationTitle: 'The 7-day evaluation',
+      dayOneTitle: 'Day-one materials',
+      fitYesTitle: 'You’re a fit if',
+      fitNoTitle: 'You’re not a fit if',
+      neverAskTitle: 'What we will never ask for',
+      reportConcerns:
+        'If anyone claiming to represent Iris Zimmerfrau Inc. asks you for money or sensitive banking information, please report it to',
+      howToApplyTitle: 'How to apply',
+      noteLabel: 'Note',
+      whatsappOpensNote: 'Opens WhatsApp with a pre-filled message. You can edit before sending.',
+      backToAll: 'Back to all open roles',
     },
     notFound: {
       title: 'Page Not Found',
@@ -610,6 +674,40 @@ export const translations: { en: Strings; ar: Strings } = {
         'إجابات لأسئلة شائعة عن خدماتنا في أتمتة الذكاء الاصطناعي والمحاسبة وسير العمل وGEO وSEO وإدارة علاقات العملاء والتسويق.',
       ctaTitle: 'لديك أسئلة أخرى؟',
       ctaText: 'احجز اجتماعًا أو راسلنا مباشرة وسنسعد بمساعدتك.',
+    },
+    careers: {
+      heroTitle: 'الوظائف في Iris Zimmerfrau Inc.',
+      heroIntro:
+        'نبني أنظمة أعمال مدعومة بالذكاء الاصطناعي للشركات الصغيرة — وكلاء ذكاء اصطناعي مخصصون، الرد الآلي على المكالمات، أتمتة سير العمل، المحاسبة، إدارة علاقات العملاء، GEO، SEO، وأتمتة التسويق. نوظّف أشخاصًا يهتمون بالنتائج الحقيقية للشركات الحقيقية ويرغبون بالعمل ضمن فريق صغير سريع الحركة.',
+      heroBias:
+        'إذا كنت منظمًا، ومحفّزًا ذاتيًا، وتميل إلى تنفيذ العمل بدلًا من الحديث عنه — ستزدهر هنا.',
+      nowHiring: 'وظائف مفتوحة',
+      openRolesTitle: 'الوظائف المتاحة',
+      openRolesOne: 'وظيفة واحدة مفتوحة حاليًا. ستضاف وظائف أخرى مع توسعنا.',
+      openRolesMany: (n: number) => `يوجد ${n} وظائف مفتوحة حاليًا.`,
+      viewRole: 'عرض الوظيفة',
+      locationLabel: 'الموقع',
+      typeLabel: 'نوع التوظيف',
+      departmentLabel: 'القسم',
+      notRightTitle: 'لا تجد الوظيفة المناسبة لك؟',
+      notRightText:
+        'نحن فريق متنامٍ ونضيف وظائف بانتظام. تواصل معنا إن كنت تعتقد أن مهاراتك تناسب طبيعة عملنا.',
+      emailUsLabel: 'البريد الإلكتروني',
+      compensation: 'الراتب والعمولة',
+      applicationsGoTo: 'تذهب الطلبات إلى بيري، مدير تطوير المبيعات.',
+      aboutTitle: 'عن الوظيفة',
+      whatYoullDo: 'ماذا ستفعل',
+      evaluationTitle: 'فترة التقييم — 7 أيام',
+      dayOneTitle: 'ما ستحصل عليه من اليوم الأول',
+      fitYesTitle: 'هذه الوظيفة مناسبة لك إذا',
+      fitNoTitle: 'هذه الوظيفة غير مناسبة لك إذا',
+      neverAskTitle: 'ما لن نطلبه منك أبدًا',
+      reportConcerns:
+        'إذا طلب منك أي شخص يدّعي أنه يمثل Iris Zimmerfrau Inc. مالًا أو معلومات بنكية حساسة، فالرجاء إبلاغنا عبر',
+      howToApplyTitle: 'كيفية التقديم',
+      noteLabel: 'ملاحظة',
+      whatsappOpensNote: 'سيُفتح WhatsApp برسالة جاهزة. يمكنك تعديلها قبل الإرسال.',
+      backToAll: 'العودة إلى جميع الوظائف',
     },
     notFound: {
       title: 'الصفحة غير موجودة',

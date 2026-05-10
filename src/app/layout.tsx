@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Noto_Sans_Arabic } from 'next/font/google';
 import Script from 'next/script';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import JsonLd from '@/components/seo/JsonLd';
+import { LocaleProvider } from '@/lib/locale-context';
 import { siteConfig } from '@/data/site';
 import './globals.css';
 
@@ -11,6 +12,13 @@ const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   variable: '--font-inter',
+});
+
+const notoArabic = Noto_Sans_Arabic({
+  subsets: ['arabic'],
+  display: 'swap',
+  variable: '--font-noto-arabic',
+  weight: ['400', '500', '600', '700', '800'],
 });
 
 export const viewport: Viewport = {
@@ -27,7 +35,7 @@ export const metadata: Metadata = {
     default: 'Iris Zimmerfrau Inc. — AI Automation, Bookkeeping & Business Systems for Small Businesses',
   },
   description:
-    'Iris Zimmerfrau Inc. builds AI-powered business systems for small businesses: custom AI agents, AI phone answering, workflow automation, bookkeeping, QuickBooks setup, GEO, SEO, CRM, and marketing automation. Practical implementation, not vague AI hype.',
+    'Iris Zimmerfrau Inc. builds AI-powered business systems for small businesses: custom AI agents, AI phone answering, workflow automation, bookkeeping, QuickBooks setup, GEO, SEO, CRM, and marketing automation. Serving the United States, United Kingdom, Egypt, Saudi Arabia, Jordan, and Iraq.',
   applicationName: siteConfig.name,
   authors: [{ name: 'Iris Zimmerfrau', url: siteConfig.url }],
   creator: 'Iris Zimmerfrau',
@@ -55,6 +63,10 @@ export const metadata: Metadata = {
     'small business automation',
     'Iris Zimmerfrau',
     'Iris Zimmerfrau Inc.',
+    'أتمتة الذكاء الاصطناعي',
+    'وكلاء ذكاء اصطناعي',
+    'محاسبة',
+    'أنظمة أعمال',
   ],
   category: 'business',
   alternates: {
@@ -63,11 +75,12 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
+    alternateLocale: ['ar_EG', 'ar_SA', 'ar_JO', 'ar_IQ', 'en_GB'],
     siteName: siteConfig.name,
     url: siteConfig.url,
     title: 'Iris Zimmerfrau Inc. — AI Automation & Business Systems',
     description:
-      'AI automation, bookkeeping, workflow automation, AI phone answering, GEO, SEO, CRM, and marketing systems for small businesses.',
+      'AI automation, bookkeeping, workflow automation, AI phone answering, GEO, SEO, CRM, and marketing systems for small businesses. Available in English and Arabic for the US, UK, Egypt, Saudi Arabia, Jordan, and Iraq.',
     images: [
       {
         url: '/og-default.svg',
@@ -122,7 +135,7 @@ const websiteSchema = {
   publisher: {
     '@id': `${siteConfig.url}/#organization`,
   },
-  inLanguage: 'en-US',
+  inLanguage: ['en-US', 'en-GB', 'ar-EG', 'ar-SA', 'ar-JO', 'ar-IQ'],
 };
 
 const organizationSchema = {
@@ -158,12 +171,16 @@ const organizationSchema = {
     contactType: 'sales',
     email: siteConfig.email,
     availableLanguage: ['English', 'Arabic'],
-    areaServed: 'US',
+    areaServed: ['US', 'GB', 'EG', 'SA', 'JO', 'IQ'],
   },
-  areaServed: {
-    '@type': 'Country',
-    name: 'United States',
-  },
+  areaServed: [
+    { '@type': 'Country', name: 'United States' },
+    { '@type': 'Country', name: 'United Kingdom' },
+    { '@type': 'Country', name: 'Egypt' },
+    { '@type': 'Country', name: 'Saudi Arabia' },
+    { '@type': 'Country', name: 'Jordan' },
+    { '@type': 'Country', name: 'Iraq' },
+  ],
 };
 
 export default function RootLayout({
@@ -172,14 +189,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${inter.variable} h-full`}>
+    <html lang="en" className={`${inter.variable} ${notoArabic.variable} h-full`}>
       <body className="flex min-h-full flex-col font-sans antialiased">
         <JsonLd data={websiteSchema} />
         <JsonLd data={organizationSchema} />
 
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <LocaleProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </LocaleProvider>
 
         {/* Koalendar Popup Widget */}
         <Script

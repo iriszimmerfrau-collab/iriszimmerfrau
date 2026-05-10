@@ -2,8 +2,10 @@
 
 import { useState } from 'react';
 import { siteConfig } from '@/data/site';
+import { useT } from '@/lib/locale-context';
+import { translations } from '@/translations';
 
-const serviceOptions = [
+const serviceOptionsEn = [
   'Custom AI Agents',
   'AI Phone Answering Agents',
   'Workflow Automation',
@@ -17,7 +19,24 @@ const serviceOptions = [
   'Other',
 ];
 
+const serviceOptionsAr = [
+  'وكلاء ذكاء اصطناعي مخصصون',
+  'وكلاء الرد الآلي بالذكاء الاصطناعي',
+  'أتمتة سير العمل',
+  'المحاسبة',
+  'إعداد وتنظيف QuickBooks',
+  'تحسين GEO',
+  'SEO والبحث المحلي',
+  'أتمتة التسويق',
+  'إدارة علاقات العملاء',
+  'المواقع وصفحات الهبوط',
+  'أخرى',
+];
+
 export default function ContactForm() {
+  const t = useT(translations);
+  const isAr = t.nav.services === 'الخدمات';
+  const serviceOptions = isAr ? serviceOptionsAr : serviceOptionsEn;
   const [form, setForm] = useState({ name: '', email: '', company: '', service: '', message: '' });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -32,7 +51,7 @@ export default function ContactForm() {
   return (
     <form onSubmit={handleSubmit} className="space-y-5">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+        <label htmlFor="name" className="block text-sm font-medium text-gray-700">{t.contact.fields.name}</label>
         <input
           id="name"
           type="text"
@@ -43,7 +62,7 @@ export default function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium text-gray-700">Email</label>
+        <label htmlFor="email" className="block text-sm font-medium text-gray-700">{t.contact.fields.email}</label>
         <input
           id="email"
           type="email"
@@ -54,7 +73,7 @@ export default function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="company" className="block text-sm font-medium text-gray-700">Company</label>
+        <label htmlFor="company" className="block text-sm font-medium text-gray-700">{t.contact.fields.company}</label>
         <input
           id="company"
           type="text"
@@ -64,21 +83,21 @@ export default function ContactForm() {
         />
       </div>
       <div>
-        <label htmlFor="service" className="block text-sm font-medium text-gray-700">Service Interested In</label>
+        <label htmlFor="service" className="block text-sm font-medium text-gray-700">{t.contact.fields.service}</label>
         <select
           id="service"
           value={form.service}
           onChange={(e) => setForm({ ...form, service: e.target.value })}
           className="mt-1 block w-full rounded-lg border border-gray-300 px-4 py-3 text-sm text-gray-900 shadow-sm focus:border-brand-500 focus:ring-2 focus:ring-brand-500 focus:outline-none"
         >
-          <option value="">Select a service</option>
+          <option value="">{t.contact.fields.servicePlaceholder}</option>
           {serviceOptions.map((opt) => (
             <option key={opt} value={opt}>{opt}</option>
           ))}
         </select>
       </div>
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700">Message</label>
+        <label htmlFor="message" className="block text-sm font-medium text-gray-700">{t.contact.fields.message}</label>
         <textarea
           id="message"
           rows={4}
@@ -92,10 +111,10 @@ export default function ContactForm() {
         type="submit"
         className="w-full rounded-lg bg-brand-500 px-6 py-3.5 text-sm font-semibold text-white transition-colors hover:bg-brand-600"
       >
-        Send Message
+        {t.common.sendMessage}
       </button>
       <p className="text-xs text-gray-500">
-        This form opens your email client. You can also email us directly at{' '}
+        {t.contact.formNote}{' '}
         <a href={`mailto:${siteConfig.email}`} className="text-brand-600 hover:underline">{siteConfig.email}</a>.
       </p>
     </form>

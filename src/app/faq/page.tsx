@@ -1,50 +1,46 @@
-import type { Metadata } from 'next';
-import { createMetadata } from '@/lib/metadata';
-import { globalFaqs } from '@/data/faq';
+'use client';
+
+import { globalFaqs, globalFaqsAr } from '@/data/faq';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import Hero from '@/components/ui/Hero';
 import FAQAccordion from '@/components/ui/FAQAccordion';
 import CTASection from '@/components/ui/CTASection';
 import JsonLd from '@/components/seo/JsonLd';
-
-export const metadata: Metadata = createMetadata({
-  title: 'FAQ — Frequently Asked Questions',
-  description:
-    'Answers to common questions about AI automation, AI phone agents, bookkeeping, workflow automation, GEO, SEO, CRM setup, and marketing systems for small businesses.',
-  path: '/faq',
-});
+import { useT, useLocale } from '@/lib/locale-context';
+import { translations } from '@/translations';
 
 export default function FAQPage() {
+  const t = useT(translations);
+  const { language } = useLocale();
+  const isAr = language === 'ar';
+
+  // Always emit English FAQ schema for crawlers (most engines prefer English).
   const faqLd = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
     mainEntity: globalFaqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.answer,
-      },
+      acceptedAnswer: { '@type': 'Answer', text: faq.answer },
     })),
   };
+
+  const faqs = isAr ? globalFaqsAr : globalFaqs;
 
   return (
     <>
       <JsonLd data={faqLd} />
-      <Breadcrumbs items={[{ label: 'FAQ', href: '/faq' }]} />
+      <Breadcrumbs items={[{ label: t.nav.faq, href: '/faq' }]} />
 
-      <Hero
-        title="Frequently Asked Questions"
-        subtitle="Answers to common questions about our AI automation, bookkeeping, workflow, GEO, SEO, CRM, and marketing services."
-      />
+      <Hero title={t.faq.heroTitle} subtitle={t.faq.heroSubtitle} />
 
       <section className="px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl">
-          <FAQAccordion items={globalFaqs} />
+          <FAQAccordion items={faqs} />
         </div>
       </section>
 
-      <CTASection heading="Have more questions?" text="Schedule a meeting or email us directly and we will be happy to help." />
+      <CTASection heading={t.faq.ctaTitle} text={t.faq.ctaText} />
     </>
   );
 }

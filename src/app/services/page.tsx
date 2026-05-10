@@ -1,5 +1,5 @@
-import type { Metadata } from 'next';
-import { createMetadata } from '@/lib/metadata';
+'use client';
+
 import { services } from '@/data/services';
 import { siteConfig } from '@/data/site';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
@@ -8,22 +8,12 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import ServiceCard from '@/components/services/ServiceCard';
 import CTASection from '@/components/ui/CTASection';
 import JsonLd from '@/components/seo/JsonLd';
-
-export const metadata: Metadata = createMetadata({
-  title: 'Services — AI Automation, Bookkeeping & Business Systems',
-  description:
-    'Explore our full range of services: custom AI agents, AI phone answering, workflow automation, bookkeeping, GEO, SEO, marketing automation, CRM setup, and website buildout for small businesses.',
-  path: '/services',
-});
-
-const categories = [
-  { key: 'ai', label: 'AI Automation', description: 'Custom AI agents, AI phone answering, and intelligent business automation.' },
-  { key: 'finance', label: 'Finance Operations', description: 'Bookkeeping, QuickBooks setup, and financial reporting for small businesses.' },
-  { key: 'growth', label: 'Growth Systems', description: 'GEO, SEO, marketing automation, and strategies to increase visibility and leads.' },
-  { key: 'infrastructure', label: 'Business Infrastructure', description: 'Workflow automation, CRM setup, websites, and operational systems.' },
-] as const;
+import { useT } from '@/lib/locale-context';
+import { translations } from '@/translations';
 
 export default function ServicesPage() {
+  const t = useT(translations);
+
   const itemListLd = {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
@@ -39,15 +29,15 @@ export default function ServicesPage() {
   return (
     <>
       <JsonLd data={itemListLd} />
-      <Breadcrumbs items={[{ label: 'Services', href: '/services' }]} />
+      <Breadcrumbs items={[{ label: t.nav.services, href: '/services' }]} />
 
       <Hero
-        title="AI Automation, Bookkeeping & Business Systems"
-        subtitle="Iris Zimmerfrau Inc. provides a full range of services to help small businesses automate operations, organize finances, capture more leads, and grow with AI-powered systems."
-        primaryCTA={{ label: 'Schedule a Meeting', href: '/book-meeting' }}
+        title={t.services.heroTitle}
+        subtitle={t.services.heroSubtitle}
+        primaryCTA={{ label: t.common.scheduleAMeeting, href: '/book-meeting' }}
       />
 
-      {categories.map((cat) => {
+      {t.services.categories.map((cat) => {
         const catServices = services.filter((s) => s.category === cat.key);
         if (catServices.length === 0) return null;
         return (

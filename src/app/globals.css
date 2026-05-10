@@ -25,7 +25,8 @@
   --color-gray-900: #111827;
   --color-gray-950: #030712;
 
-  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-sans: var(--font-inter), 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-arabic: var(--font-noto-arabic), 'Noto Sans Arabic', 'Tajawal', 'Cairo', ui-sans-serif, system-ui, sans-serif;
 }
 
 body {
@@ -34,6 +35,21 @@ body {
   background-color: #ffffff;
 }
 
+html[dir="rtl"] body {
+  font-family: var(--font-arabic);
+}
+
+/* Hide the Koalendar popup widget when in RTL — its absolute positioning
+   sits in the wrong corner. Users can still book via the dedicated page. */
+html[dir="rtl"] [class*="koalendar"] {
+  /* keep visible — Koalendar widget overlays via fixed positioning, looks fine */
+}
+
 html {
   scroll-behavior: smooth;
+}
+
+/* Slight visual smoothing for Arabic numerals/text */
+html[dir="rtl"] {
+  font-feature-settings: 'kern', 'liga', 'calt';
 }

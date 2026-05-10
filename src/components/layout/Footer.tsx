@@ -26,6 +26,7 @@ export default function Footer() {
     { label: t.nav.about, href: '/about' },
     { label: t.nav.pricing, href: '/pricing' },
     { label: t.nav.faq, href: '/faq' },
+    { label: t.nav.careers, href: '/careers' },
     { label: t.nav.contact, href: '/contact' },
     { label: t.nav.bookMeeting, href: '/book-meeting' },
   ];

@@ -17,6 +17,7 @@ export default function Header() {
     { label: t.nav.pricing, href: '/pricing' },
     { label: t.nav.about, href: '/about' },
     { label: t.nav.faq, href: '/faq' },
+    { label: t.nav.careers, href: '/careers' },
     { label: t.nav.contact, href: '/contact' },
   ];
 

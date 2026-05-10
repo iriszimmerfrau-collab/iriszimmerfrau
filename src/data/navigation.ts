@@ -20,6 +20,7 @@ export const mainNav: NavItem[] = [
   { label: 'Pricing', href: '/pricing' },
   { label: 'About', href: '/about' },
   { label: 'FAQ', href: '/faq' },
+  { label: 'Careers', href: '/careers' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -40,6 +41,7 @@ export const footerNav = {
     { label: 'About', href: '/about' },
     { label: 'Pricing', href: '/pricing' },
     { label: 'FAQ', href: '/faq' },
+    { label: 'Careers', href: '/careers' },
     { label: 'Contact', href: '/contact' },
     { label: 'Book a Meeting', href: '/book-meeting' },
   ],

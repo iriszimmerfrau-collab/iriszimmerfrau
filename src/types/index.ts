@@ -62,4 +62,10 @@ export interface SiteConfig {
   tagline: string;
   supportingMessage: string;
   koalendarUrl: string;
+  /** Google Analytics 4 measurement ID, e.g. "G-XXXXXXXXXX". Empty string = disabled. */
+  gaMeasurementId: string;
+  /** Google Search Console verification token (content of the meta tag). Empty = disabled. */
+  googleSiteVerification: string;
+  /** Bing Webmaster Tools verification token. Empty = disabled. */
+  bingSiteVerification: string;
 }

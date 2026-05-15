@@ -15,6 +15,7 @@ export default function Header() {
   const mainNav = [
     { label: t.nav.services, href: '/services' },
     { label: t.nav.pricing, href: '/pricing' },
+    { label: t.nav.blog, href: '/blog' },
     { label: t.nav.about, href: '/about' },
     { label: t.nav.faq, href: '/faq' },
     { label: t.nav.careers, href: '/careers' },

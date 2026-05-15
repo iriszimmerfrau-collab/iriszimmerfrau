@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { services } from '@/data/services';
 import { careers } from '@/data/careers';
+import { blogPosts } from '@/data/blog';
 
 const BASE_URL = 'https://iriszf.com';
 
@@ -24,20 +25,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  // Personal page sub-site (raw HTML, served at /personal-page/*)
-  const personalPages = [
-    { url: `${BASE_URL}/personal-page/`, priority: 0.7 },
-    { url: `${BASE_URL}/personal-page/research.html`, priority: 0.7 },
-    { url: `${BASE_URL}/personal-page/publications.html`, priority: 0.7 },
-    { url: `${BASE_URL}/personal-page/software.html`, priority: 0.7 },
-    { url: `${BASE_URL}/personal-page/background.html`, priority: 0.6 },
-    { url: `${BASE_URL}/personal-page/contact.html`, priority: 0.6 },
-  ].map((p) => ({
-    url: p.url,
-    lastModified: now,
+  // Blog posts — sitemap auto-updates as src/data/blog.ts grows.
+  const blogPages = blogPosts.map((p) => ({
+    url: `${BASE_URL}/blog/${p.slug}`,
+    lastModified: p.updatedAt ? new Date(p.updatedAt) : new Date(p.publishedAt),
     changeFrequency: 'monthly' as const,
-    priority: p.priority,
+    priority: 0.7,
   }));
+
+  // NOTE: /personal-page/ sub-site is now noindex'd so Google focuses iriszf.com's
+  // topic model on the AI consultancy. We intentionally don't list those URLs in
+  // the sitemap. The pages remain accessible to direct visitors.
 
   return [
     { url: `${BASE_URL}/`, lastModified: now, changeFrequency: 'weekly', priority: 1.0 },
@@ -50,7 +48,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/faq`, lastModified: now, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/careers`, lastModified: now, changeFrequency: 'monthly', priority: 0.6 },
     ...careerPages,
-    ...personalPages,
+    { url: `${BASE_URL}/blog`, lastModified: now, changeFrequency: 'weekly', priority: 0.8 },
+    ...blogPages,
     { url: `${BASE_URL}/privacy`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE_URL}/terms`, lastModified: now, changeFrequency: 'yearly', priority: 0.3 },
   ];

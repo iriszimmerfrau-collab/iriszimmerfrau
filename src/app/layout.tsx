@@ -4,6 +4,7 @@ import Script from 'next/script';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import JsonLd from '@/components/seo/JsonLd';
+import Analytics from '@/components/seo/Analytics';
 import { LocaleProvider } from '@/lib/locale-context';
 import { siteConfig } from '@/data/site';
 import './globals.css';
@@ -123,6 +124,13 @@ export const metadata: Metadata = {
     address: false,
     email: false,
   },
+  verification: {
+    // Both are no-ops when the strings in src/data/site.ts are empty.
+    google: siteConfig.googleSiteVerification || undefined,
+    other: siteConfig.bingSiteVerification
+      ? { 'msvalidate.01': siteConfig.bingSiteVerification }
+      : undefined,
+  },
 };
 
 const websiteSchema = {
@@ -199,6 +207,8 @@ export default function RootLayout({
           <main className="flex-1">{children}</main>
           <Footer />
         </LocaleProvider>
+
+        <Analytics />
 
         {/* Koalendar Popup Widget */}
         <Script

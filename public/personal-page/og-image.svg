@@ -17,11 +17,11 @@
   <text x="200" y="155" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#a5b4fc">iriszf.com/personal-page</text>
 
   <!-- Headline -->
-  <text x="80" y="380" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="64" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Quantum Computing.</text>
-  <text x="80" y="455" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="64" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Linguistics. Software.</text>
+  <text x="80" y="380" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="64" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Companies. Software.</text>
+  <text x="80" y="455" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="64" font-weight="800" fill="#FFFFFF" letter-spacing="-2">Research. Writing.</text>
 
   <!-- Tagline -->
-  <text x="80" y="525" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#c7d2fe">Independent researcher · Developer · Founder · San Francisco</text>
+  <text x="80" y="525" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="22" fill="#c7d2fe">Independent Builder · San Francisco</text>
 
   <!-- Tags -->
   <text x="80" y="580" font-family="Inter, 'Helvetica Neue', Arial, sans-serif" font-size="18" fill="#a5b4fc">novum-qvm · PFQVS · 2 books · 3 papers · 2 companies founded</text>

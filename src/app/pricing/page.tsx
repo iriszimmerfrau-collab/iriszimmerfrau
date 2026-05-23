@@ -1,6 +1,7 @@
 'use client';
 
-import { monthlyPackages, monthlyPackagesAr, oneTimeServices, oneTimeServicesAr } from '@/data/pricing';
+import { monthlyPackages, monthlyPackagesAr, monthlyPackagesKu, oneTimeServices, oneTimeServicesAr, oneTimeServicesKu } from '@/data/pricing';
+import { isRtlLanguage } from '@/data/locales';
 import { getCountry } from '@/data/locales';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import Hero from '@/components/ui/Hero';
@@ -15,6 +16,10 @@ export default function PricingPage() {
   const t = useT(translations);
   const { country, currency, language } = useLocale();
   const isAr = language === 'ar';
+  const isKu = language === 'ku';
+  const isRtl = isRtlLanguage(language);
+  const localizedPackages = isAr ? monthlyPackagesAr : isKu ? monthlyPackagesKu : null;
+  const localizedOneTime = isAr ? oneTimeServicesAr : isKu ? oneTimeServicesKu : null;
 
   const countryName = getCountry(country).name[language];
   const currencyNoteText = t.pricing.currencyNote(countryName, currency);
@@ -44,15 +49,15 @@ export default function PricingPage() {
           />
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {monthlyPackages.map((pkg, i) => {
-              const ar = monthlyPackagesAr[i];
+              const localized = localizedPackages?.[i];
               return (
                 <PricingCard
                   key={pkg.name}
                   pkg={pkg}
-                  localizedName={isAr ? ar?.name : undefined}
-                  localizedTagline={isAr ? ar?.tagline : undefined}
-                  localizedFeatures={isAr ? ar?.features : undefined}
-                  localizedCta={isAr ? ar?.cta : undefined}
+                  localizedName={localized?.name}
+                  localizedTagline={localized?.tagline}
+                  localizedFeatures={localized?.features}
+                  localizedCta={localized?.cta}
                 />
               );
             })}
@@ -70,7 +75,7 @@ export default function PricingPage() {
           />
           <div className="mt-12 space-y-4">
             {oneTimeServices.map((service, i) => {
-              const ar = oneTimeServicesAr[i];
+              const localized = localizedOneTime?.[i];
               const usdAmount = parseUsdString(service.price);
               const displayPrice = formatPrice(usdAmount, currency);
               return (
@@ -80,13 +85,13 @@ export default function PricingPage() {
                 >
                   <div>
                     <h3 className="text-base font-semibold text-gray-900">
-                      {isAr ? ar?.name : service.name}
+                      {localized?.name ?? service.name}
                     </h3>
                     <p className="mt-1 text-sm text-gray-600">
-                      {isAr ? ar?.description : service.description}
+                      {localized?.description ?? service.description}
                     </p>
                   </div>
-                  <div className={isAr ? 'text-left' : 'text-right'}>
+                  <div className={isRtl ? 'text-left' : 'text-right'}>
                     <p className="text-lg font-bold text-gray-900">{displayPrice}</p>
                     <p className="text-xs text-gray-500">{t.common.startingPrice}</p>
                   </div>

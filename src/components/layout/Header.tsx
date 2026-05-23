@@ -3,12 +3,15 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { siteConfig } from '@/data/site';
-import { useT } from '@/lib/locale-context';
+import { useT, useLocale } from '@/lib/locale-context';
+import { isRtlLanguage } from '@/data/locales';
 import { translations } from '@/translations';
 import LocaleSwitcher from './LocaleSwitcher';
 
 export default function Header() {
   const t = useT(translations);
+  const { language } = useLocale();
+  const isRtl = isRtlLanguage(language);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
 
@@ -22,23 +25,20 @@ export default function Header() {
     { label: t.nav.contact, href: '/contact' },
   ];
 
-  // Service sub-nav uses titles in current language — kept simple, links to slugs.
-  // We can later swap labels for localized service shortTitles via a hook.
-  const serviceLinks = [
-    { en: 'Custom AI Agents', ar: 'وكلاء ذكاء اصطناعي مخصصون', href: '/services/custom-ai-agents' },
-    { en: 'AI Phone Answering', ar: 'الرد الآلي بالذكاء الاصطناعي', href: '/services/ai-phone-answering-agents' },
-    { en: 'Workflow Automation', ar: 'أتمتة سير العمل', href: '/services/workflow-automation' },
-    { en: 'Bookkeeping', ar: 'المحاسبة', href: '/services/bookkeeping' },
-    { en: 'QuickBooks Setup & Cleanup', ar: 'إعداد وتنظيف QuickBooks', href: '/services/quickbooks-setup-cleanup' },
-    { en: 'GEO Optimization', ar: 'تحسين GEO', href: '/services/generative-engine-optimization' },
-    { en: 'SEO & Local Search', ar: 'SEO والبحث المحلي', href: '/services/seo-local-search' },
-    { en: 'Marketing Automation', ar: 'أتمتة التسويق', href: '/services/marketing-automation' },
-    { en: 'CRM & Sales Pipeline', ar: 'إدارة علاقات العملاء', href: '/services/crm-sales-pipeline' },
-    { en: 'Website & Landing Pages', ar: 'المواقع وصفحات الهبوط', href: '/services/website-landing-pages' },
+  // Service sub-nav uses titles in current language. Kurdish translations
+  // are added below alongside English and Arabic.
+  const serviceLinks: { en: string; ar: string; ku: string; href: string }[] = [
+    { en: 'Custom AI Agents', ar: 'وكلاء ذكاء اصطناعي مخصصون', ku: 'بریکارە تایبەتەکانی AI', href: '/services/custom-ai-agents' },
+    { en: 'AI Phone Answering', ar: 'الرد الآلي بالذكاء الاصطناعي', ku: 'وەڵامدانەوەی تەلەفۆن بە AI', href: '/services/ai-phone-answering-agents' },
+    { en: 'Workflow Automation', ar: 'أتمتة سير العمل', ku: 'ئۆتۆماتیکی شێوازی کار', href: '/services/workflow-automation' },
+    { en: 'Bookkeeping', ar: 'المحاسبة', ku: 'ژمێریاری', href: '/services/bookkeeping' },
+    { en: 'QuickBooks Setup & Cleanup', ar: 'إعداد وتنظيف QuickBooks', ku: 'ڕێکخستن و پاککردنەوەی QuickBooks', href: '/services/quickbooks-setup-cleanup' },
+    { en: 'GEO Optimization', ar: 'تحسين GEO', ku: 'باشترکردنی GEO', href: '/services/generative-engine-optimization' },
+    { en: 'SEO & Local Search', ar: 'SEO والبحث المحلي', ku: 'SEO و گەڕانی ناوخۆیی', href: '/services/seo-local-search' },
+    { en: 'Marketing Automation', ar: 'أتمتة التسويق', ku: 'ئۆتۆماتیکی بازاڕکردن', href: '/services/marketing-automation' },
+    { en: 'CRM & Sales Pipeline', ar: 'إدارة علاقات العملاء', ku: 'CRM و لۆلەی فرۆشتن', href: '/services/crm-sales-pipeline' },
+    { en: 'Website & Landing Pages', ar: 'المواقع وصفحات الهبوط', ku: 'ماڵپەڕ و پەڕەی هاتنە خوارەوە', href: '/services/website-landing-pages' },
   ];
-
-  // Determine current language by reading t — slightly hacky but works.
-  const isAr = t.nav.services === 'الخدمات';
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
@@ -76,14 +76,14 @@ export default function Header() {
                   </svg>
                 </Link>
                 {servicesOpen && (
-                  <div className={`absolute top-full z-50 mt-0 w-72 rounded-xl border border-gray-200 bg-white p-2 shadow-lg ${isAr ? 'right-0' : 'left-0'}`}>
+                  <div className={`absolute top-full z-50 mt-0 w-72 rounded-xl border border-gray-200 bg-white p-2 shadow-lg ${isRtl ? 'right-0' : 'left-0'}`}>
                     {serviceLinks.map((child) => (
                       <Link
                         key={child.href}
                         href={child.href}
                         className="block rounded-lg px-3 py-2 text-sm text-gray-700 transition-colors hover:bg-brand-50 hover:text-brand-700"
                       >
-                        {isAr ? child.ar : child.en}
+                        {child[language]}
                       </Link>
                     ))}
                     <div className="mt-1 border-t border-gray-100 pt-1">
@@ -125,7 +125,11 @@ export default function Header() {
             type="button"
             className="rounded-lg p-2 text-gray-700 hover:bg-gray-100"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? (isAr ? 'إغلاق القائمة' : 'Close menu') : (isAr ? 'فتح القائمة' : 'Open menu')}
+            aria-label={
+              mobileOpen
+                ? (language === 'ar' ? 'إغلاق القائمة' : language === 'ku' ? 'داخستنی لیست' : 'Close menu')
+                : (language === 'ar' ? 'فتح القائمة' : language === 'ku' ? 'کردنەوەی لیست' : 'Open menu')
+            }
             aria-expanded={mobileOpen}
           >
             {mobileOpen ? (
@@ -162,7 +166,7 @@ export default function Header() {
                       className="block rounded-lg px-3 py-2 text-sm text-gray-600 hover:bg-gray-100"
                       onClick={() => setMobileOpen(false)}
                     >
-                      {isAr ? child.ar : child.en}
+                      {child[language]}
                     </Link>
                   ))}
                 </div>

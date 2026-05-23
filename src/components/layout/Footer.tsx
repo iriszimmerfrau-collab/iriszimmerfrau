@@ -2,24 +2,26 @@
 
 import Link from 'next/link';
 import { siteConfig } from '@/data/site';
-import { useT } from '@/lib/locale-context';
+import { useT, useLocale } from '@/lib/locale-context';
 import { translations } from '@/translations';
 
 export default function Footer() {
   const t = useT(translations);
-  const isAr = t.nav.services === 'الخدمات';
+  const { language } = useLocale();
+  const isAr = language === 'ar';
+  const isKu = language === 'ku';
 
-  const services = [
-    { en: 'Custom AI Agents', ar: 'وكلاء ذكاء اصطناعي مخصصون', href: '/services/custom-ai-agents' },
-    { en: 'AI Phone Answering', ar: 'الرد الآلي بالذكاء الاصطناعي', href: '/services/ai-phone-answering-agents' },
-    { en: 'Workflow Automation', ar: 'أتمتة سير العمل', href: '/services/workflow-automation' },
-    { en: 'Bookkeeping', ar: 'المحاسبة', href: '/services/bookkeeping' },
-    { en: 'QuickBooks Setup', ar: 'إعداد QuickBooks', href: '/services/quickbooks-setup-cleanup' },
-    { en: 'GEO Optimization', ar: 'تحسين GEO', href: '/services/generative-engine-optimization' },
-    { en: 'SEO & Local Search', ar: 'SEO والبحث المحلي', href: '/services/seo-local-search' },
-    { en: 'Marketing Automation', ar: 'أتمتة التسويق', href: '/services/marketing-automation' },
-    { en: 'CRM & Sales Pipeline', ar: 'إدارة علاقات العملاء', href: '/services/crm-sales-pipeline' },
-    { en: 'Websites & Landing Pages', ar: 'المواقع وصفحات الهبوط', href: '/services/website-landing-pages' },
+  const services: { en: string; ar: string; ku: string; href: string }[] = [
+    { en: 'Custom AI Agents', ar: 'وكلاء ذكاء اصطناعي مخصصون', ku: 'بریکارە تایبەتەکانی AI', href: '/services/custom-ai-agents' },
+    { en: 'AI Phone Answering', ar: 'الرد الآلي بالذكاء الاصطناعي', ku: 'وەڵامدانەوەی تەلەفۆن بە AI', href: '/services/ai-phone-answering-agents' },
+    { en: 'Workflow Automation', ar: 'أتمتة سير العمل', ku: 'ئۆتۆماتیکی شێوازی کار', href: '/services/workflow-automation' },
+    { en: 'Bookkeeping', ar: 'المحاسبة', ku: 'ژمێریاری', href: '/services/bookkeeping' },
+    { en: 'QuickBooks Setup', ar: 'إعداد QuickBooks', ku: 'ڕێکخستنی QuickBooks', href: '/services/quickbooks-setup-cleanup' },
+    { en: 'GEO Optimization', ar: 'تحسين GEO', ku: 'باشترکردنی GEO', href: '/services/generative-engine-optimization' },
+    { en: 'SEO & Local Search', ar: 'SEO والبحث المحلي', ku: 'SEO و گەڕانی ناوخۆیی', href: '/services/seo-local-search' },
+    { en: 'Marketing Automation', ar: 'أتمتة التسويق', ku: 'ئۆتۆماتیکی بازاڕکردن', href: '/services/marketing-automation' },
+    { en: 'CRM & Sales Pipeline', ar: 'إدارة علاقات العملاء', ku: 'CRM و لۆلەی فرۆشتن', href: '/services/crm-sales-pipeline' },
+    { en: 'Websites & Landing Pages', ar: 'المواقع وصفحات الهبوط', ku: 'ماڵپەڕ و پەڕەی هاتنە خوارەوە', href: '/services/website-landing-pages' },
   ];
 
   const company = [
@@ -56,7 +58,11 @@ export default function Footer() {
               </span>
             </Link>
             <p className="mt-3 text-sm leading-relaxed text-gray-400">
-              {isAr ? 'عمليات مؤتمتة. تسويق أذكى. حسابات أنظف.' : siteConfig.tagline}
+              {isAr
+                ? 'عمليات مؤتمتة. تسويق أذكى. حسابات أنظف.'
+                : isKu
+                  ? 'کارە ئۆتۆماتیککراوەکان. بازاڕکردنی زیرەکتر. حسابی ڕێکتر.'
+                  : siteConfig.tagline}
             </p>
             <div className="mt-4 space-y-2 text-sm">
               <a
@@ -69,7 +75,7 @@ export default function Footer() {
                 href="/book-meeting"
                 className="inline-block text-brand-400 transition-colors hover:text-brand-300"
               >
-                {t.common.scheduleAMeeting} {isAr ? '←' : '→'}
+                {t.common.scheduleAMeeting} {isAr || isKu ? '←' : '→'}
               </Link>
             </div>
           </div>
@@ -81,7 +87,7 @@ export default function Footer() {
               {services.map((item) => (
                 <li key={item.href}>
                   <Link href={item.href} className="text-sm text-gray-400 transition-colors hover:text-white">
-                    {isAr ? item.ar : item.en}
+                    {item[language]}
                   </Link>
                 </li>
               ))}

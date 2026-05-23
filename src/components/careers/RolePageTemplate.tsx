@@ -6,8 +6,10 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import JsonLd from '@/components/seo/JsonLd';
 import type { JobRole } from '@/data/careers';
 import { getRoleArBySlug } from '@/data/careers.ar';
+import { getRoleKuBySlug } from '@/data/careers.ku';
 import { siteConfig } from '@/data/site';
 import { useT, useLocale } from '@/lib/locale-context';
+import { isRtlLanguage } from '@/data/locales';
 import { translations } from '@/translations';
 
 interface ApplyButtonProps {
@@ -39,8 +41,12 @@ function ApplyButton({ href, label, size = 'lg' }: ApplyButtonProps) {
 export default function RolePageTemplate({ role }: { role: JobRole }) {
   const t = useT(translations);
   const { language } = useLocale();
-  const isAr = language === 'ar';
-  const ar = isAr ? getRoleArBySlug(role.slug) : undefined;
+  const isRtl = isRtlLanguage(language);
+  // Pick the localized record for the active language. English source is the
+  // fallback for any field not yet translated.
+  const ar = language === 'ar' ? getRoleArBySlug(role.slug)
+           : language === 'ku' ? getRoleKuBySlug(role.slug)
+           : undefined;
 
   // Choose the displayed content. English from `role`, Arabic from `ar` with
   // English fallback when a particular Arabic field is missing.
@@ -365,7 +371,7 @@ export default function RolePageTemplate({ role }: { role: JobRole }) {
         {/* Back link */}
         <section className="border-t border-gray-200 bg-gray-50 px-4 py-12 text-center sm:px-6 lg:px-8">
           <Link href="/careers" className="text-sm font-medium text-brand-600 hover:text-brand-700">
-            {isAr ? '→' : '←'} {t.careers.backToAll}
+            {isRtl ? '→' : '←'} {t.careers.backToAll}
           </Link>
         </section>
       </article>

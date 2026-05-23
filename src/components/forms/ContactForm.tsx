@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { siteConfig } from '@/data/site';
-import { useT } from '@/lib/locale-context';
+import { useT, useLocale } from '@/lib/locale-context';
 import { translations } from '@/translations';
 
 const serviceOptionsEn = [
@@ -33,10 +33,26 @@ const serviceOptionsAr = [
   'أخرى',
 ];
 
+const serviceOptionsKu = [
+  'بریکارە تایبەتەکانی AI',
+  'بریکاری وەڵامدانەوەی تەلەفۆن بە AI',
+  'ئۆتۆماتیکی شێوازی کار',
+  'ژمێریاری',
+  'ڕێکخستن و پاککردنەوەی QuickBooks',
+  'باشترکردنی GEO',
+  'SEO و گەڕانی ناوخۆیی',
+  'ئۆتۆماتیکی بازاڕکردن',
+  'CRM و لۆلەی فرۆشتن',
+  'ماڵپەڕ و پەڕەی هاتنە خوارەوە',
+  'هیتر',
+];
+
 export default function ContactForm() {
   const t = useT(translations);
-  const isAr = t.nav.services === 'الخدمات';
-  const serviceOptions = isAr ? serviceOptionsAr : serviceOptionsEn;
+  const { language } = useLocale();
+  const serviceOptions = language === 'ar' ? serviceOptionsAr
+                       : language === 'ku' ? serviceOptionsKu
+                       : serviceOptionsEn;
   const [form, setForm] = useState({ name: '', email: '', company: '', service: '', message: '' });
 
   const handleSubmit = (e: React.FormEvent) => {

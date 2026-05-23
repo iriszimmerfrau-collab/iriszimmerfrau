@@ -3,6 +3,7 @@
 import type { Service } from '@/types';
 import { siteConfig } from '@/data/site';
 import { getServiceArBySlug } from '@/data/services.ar';
+import { getServiceKuBySlug } from '@/data/services.ku';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import Hero from '@/components/ui/Hero';
 import SectionHeading from '@/components/ui/SectionHeading';
@@ -18,8 +19,11 @@ import { translations } from '@/translations';
 export default function ServicePageTemplate({ service }: { service: Service }) {
   const t = useT(translations);
   const { language } = useLocale();
-  const isAr = language === 'ar';
-  const ar = isAr ? getServiceArBySlug(service.slug) : undefined;
+  // Pick the localized record for the active language. English source is the
+  // fallback for any field not yet translated.
+  const ar = language === 'ar' ? getServiceArBySlug(service.slug)
+           : language === 'ku' ? getServiceKuBySlug(service.slug)
+           : undefined;
 
   // Choose localized fields with English fallback for missing translations.
   const title = ar?.title ?? service.title;

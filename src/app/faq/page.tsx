@@ -1,6 +1,6 @@
 'use client';
 
-import { globalFaqs, globalFaqsAr } from '@/data/faq';
+import { globalFaqs, globalFaqsAr, globalFaqsKu } from '@/data/faq';
 import Breadcrumbs from '@/components/ui/Breadcrumbs';
 import Hero from '@/components/ui/Hero';
 import FAQAccordion from '@/components/ui/FAQAccordion';
@@ -13,6 +13,7 @@ export default function FAQPage() {
   const t = useT(translations);
   const { language } = useLocale();
   const isAr = language === 'ar';
+  const isKu = language === 'ku';
 
   // Always emit English FAQ schema for crawlers (most engines prefer English).
   const faqLd = {
@@ -25,7 +26,7 @@ export default function FAQPage() {
     })),
   };
 
-  const faqs = isAr ? globalFaqsAr : globalFaqs;
+  const faqs = isAr ? globalFaqsAr : isKu ? globalFaqsKu : globalFaqs;
 
   return (
     <>

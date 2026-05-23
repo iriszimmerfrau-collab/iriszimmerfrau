@@ -19,7 +19,6 @@ export default function CTASection({
   buttonHref = '/book-meeting',
 }: CTASectionProps) {
   const t = useT(translations);
-  const isAr = t.nav.services === 'الخدمات';
 
   return (
     <section className="bg-brand-950 px-4 py-20 text-center sm:px-6 lg:px-8">
@@ -37,7 +36,7 @@ export default function CTASection({
             href={`mailto:${siteConfig.email}`}
             className="text-sm font-medium text-brand-300 transition-colors hover:text-white"
           >
-            {isAr ? `${t.common.orEmail} ${siteConfig.email}` : `${t.common.orEmail} ${siteConfig.email}`}
+            {t.common.orEmail} {siteConfig.email}
           </a>
         </div>
       </div>

@@ -7,6 +7,7 @@ import {
   type Language,
   countries,
   getCountry,
+  isRtlLanguage,
   COUNTRY_FALLBACK,
   DEFAULT_COUNTRY,
 } from '@/data/locales';
@@ -109,7 +110,7 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
 
   const [language, setLanguageState] = useState<Language>(() => {
     const stored = readStorage(STORAGE_KEYS.language);
-    if (stored === 'en' || stored === 'ar') return stored;
+    if (stored === 'en' || stored === 'ar' || stored === 'ku') return stored;
     const c = readStorage(STORAGE_KEYS.country);
     return isValidCountry(c) ? getCountry(c).defaultLanguage : 'en';
   });
@@ -164,8 +165,9 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   // When language changes, update the html lang and dir attributes.
   useEffect(() => {
     if (typeof document === 'undefined') return;
-    document.documentElement.lang = language;
-    document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr';
+    // Sorani Kurdish BCP 47 tag: ckb. Use that for proper screen-reader pronunciation.
+    document.documentElement.lang = language === 'ku' ? 'ckb' : language;
+    document.documentElement.dir = isRtlLanguage(language) ? 'rtl' : 'ltr';
   }, [language]);
 
   const setCountry = useCallback((code: CountryCode) => {
@@ -216,8 +218,11 @@ export function useLanguage(): Language {
   return useLocale().language;
 }
 
-/** Pick the right value out of a {en, ar} object based on current language. */
-export function useT<T>(strings: { en: T; ar: T }): T {
+/**
+ * Pick the right value out of a {en, ar, ku} object based on current language.
+ * Falls back to en if a translation is missing (defensive).
+ */
+export function useT<T>(strings: { en: T; ar: T; ku?: T }): T {
   const lang = useLanguage();
-  return strings[lang];
+  return strings[lang] ?? strings.en;
 }

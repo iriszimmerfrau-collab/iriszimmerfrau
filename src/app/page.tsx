@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import { services } from '@/data/services';
 import { siteConfig } from '@/data/site';
-import { monthlyPackages, monthlyPackagesAr } from '@/data/pricing';
-import { globalFaqs, globalFaqsAr } from '@/data/faq';
+import { monthlyPackages, monthlyPackagesAr, monthlyPackagesKu } from '@/data/pricing';
+import { globalFaqs, globalFaqsAr, globalFaqsKu } from '@/data/faq';
+import { isRtlLanguage } from '@/data/locales';
 import ServiceCard from '@/components/services/ServiceCard';
 import PricingCard from '@/components/pricing/PricingCard';
 import FAQAccordion from '@/components/ui/FAQAccordion';
@@ -18,6 +19,9 @@ export default function HomePage() {
   const t = useT(translations);
   const { language } = useLocale();
   const isAr = language === 'ar';
+  const isKu = language === 'ku';
+  const isRtl = isRtlLanguage(language);
+  const localizedPackages = isAr ? monthlyPackagesAr : isKu ? monthlyPackagesKu : null;
 
   const professionalServiceLd = {
     '@context': 'https://schema.org',
@@ -55,7 +59,7 @@ export default function HomePage() {
     availableLanguage: ['English', 'Arabic'],
   };
 
-  const previewFaqs = (isAr ? globalFaqsAr : globalFaqs).slice(0, 5);
+  const previewFaqs = (isAr ? globalFaqsAr : isKu ? globalFaqsKu : globalFaqs).slice(0, 5);
 
   const homeFaqLd = {
     '@context': 'https://schema.org',
@@ -97,7 +101,7 @@ export default function HomePage() {
           </div>
 
           {/* Trust bullets */}
-          <ul className={`mt-12 grid gap-3 sm:grid-cols-2 lg:mx-auto lg:max-w-2xl ${isAr ? 'text-right' : 'text-left'}`}>
+          <ul className={`mt-12 grid gap-3 sm:grid-cols-2 lg:mx-auto lg:max-w-2xl ${isRtl ? 'text-right' : 'text-left'}`}>
             {t.home.trustBullets.map((bullet, i) => (
               <li key={i} className="flex items-start gap-2 text-sm text-brand-200">
                 <svg className="mt-0.5 h-4 w-4 shrink-0 text-brand-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
@@ -121,7 +125,7 @@ export default function HomePage() {
               <div key={i} className="flex items-center gap-2">
                 <span className="rounded-lg bg-brand-50 px-4 py-2 text-sm font-medium text-brand-700">{item}</span>
                 {i < t.home.systemStack.length - 1 && (
-                  <svg className={`h-4 w-4 text-brand-400 ${isAr ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg className={`h-4 w-4 text-brand-400 ${isRtl ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                   </svg>
                 )}
@@ -202,22 +206,22 @@ export default function HomePage() {
           />
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
             {monthlyPackages.map((pkg, i) => {
-              const ar = monthlyPackagesAr[i];
+              const localized = localizedPackages?.[i];
               return (
                 <PricingCard
                   key={pkg.name}
                   pkg={pkg}
-                  localizedName={isAr ? ar?.name : undefined}
-                  localizedTagline={isAr ? ar?.tagline : undefined}
-                  localizedFeatures={isAr ? ar?.features : undefined}
-                  localizedCta={isAr ? ar?.cta : undefined}
+                  localizedName={localized?.name}
+                  localizedTagline={localized?.tagline}
+                  localizedFeatures={localized?.features}
+                  localizedCta={localized?.cta}
                 />
               );
             })}
           </div>
           <div className="mt-8 text-center">
             <Link href="/pricing" className="text-sm font-medium text-brand-600 hover:text-brand-700">
-              {t.common.viewFullPricing} {isAr ? '←' : '→'}
+              {t.common.viewFullPricing} {isRtl ? '←' : '→'}
             </Link>
           </div>
         </div>
@@ -240,10 +244,10 @@ export default function HomePage() {
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
             <Link href="/services/generative-engine-optimization" className="text-sm font-medium text-brand-600 hover:text-brand-700">
-              {t.home.learnGeo} {isAr ? '←' : '→'}
+              {t.home.learnGeo} {isRtl ? '←' : '→'}
             </Link>
             <Link href="/services/seo-local-search" className="text-sm font-medium text-brand-600 hover:text-brand-700">
-              {t.home.learnSeo} {isAr ? '←' : '→'}
+              {t.home.learnSeo} {isRtl ? '←' : '→'}
             </Link>
           </div>
         </div>
@@ -258,7 +262,7 @@ export default function HomePage() {
           </div>
           <div className="mt-8 text-center">
             <Link href="/faq" className="text-sm font-medium text-brand-600 hover:text-brand-700">
-              {t.common.viewAllFaqs} {isAr ? '←' : '→'}
+              {t.common.viewAllFaqs} {isRtl ? '←' : '→'}
             </Link>
           </div>
         </div>

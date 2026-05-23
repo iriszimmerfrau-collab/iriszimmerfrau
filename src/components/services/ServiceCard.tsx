@@ -3,17 +3,21 @@
 import Link from 'next/link';
 import type { Service } from '@/types';
 import { getServiceArBySlug } from '@/data/services.ar';
+import { getServiceKuBySlug } from '@/data/services.ku';
 import { useT, useLocale } from '@/lib/locale-context';
+import { isRtlLanguage } from '@/data/locales';
 import { translations } from '@/translations';
 
 export default function ServiceCard({ service }: { service: Service }) {
   const t = useT(translations);
   const { language } = useLocale();
-  const ar = language === 'ar' ? getServiceArBySlug(service.slug) : undefined;
+  const localized = language === 'ar' ? getServiceArBySlug(service.slug)
+                  : language === 'ku' ? getServiceKuBySlug(service.slug)
+                  : undefined;
 
-  const shortTitle = ar?.shortTitle ?? service.shortTitle;
-  const description = ar?.description ?? service.description;
-  const isAr = language === 'ar';
+  const shortTitle = localized?.shortTitle ?? service.shortTitle;
+  const description = localized?.description ?? service.description;
+  const isRtl = isRtlLanguage(language);
 
   const trimmed = description.length > 140 ? description.slice(0, 140) + '...' : description;
 
@@ -27,7 +31,7 @@ export default function ServiceCard({ service }: { service: Service }) {
       </h3>
       <p className="mt-2 flex-1 text-sm leading-relaxed text-gray-600">{trimmed}</p>
       <span className="mt-4 text-sm font-medium text-brand-600 group-hover:text-brand-700">
-        {t.common.learnMore} {isAr ? '←' : '→'}
+        {t.common.learnMore} {isRtl ? '←' : '→'}
       </span>
     </Link>
   );

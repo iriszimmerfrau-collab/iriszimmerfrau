@@ -6,6 +6,8 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import JsonLd from '@/components/seo/JsonLd';
 import { careers } from '@/data/careers';
 import { careersAr } from '@/data/careers.ar';
+import { careersKu } from '@/data/careers.ku';
+import { isRtlLanguage } from '@/data/locales';
 import { siteConfig } from '@/data/site';
 import { useT, useLocale } from '@/lib/locale-context';
 import { translations } from '@/translations';
@@ -13,7 +15,9 @@ import { translations } from '@/translations';
 export default function CareersIndexPage() {
   const t = useT(translations);
   const { language } = useLocale();
+  const isRtl = isRtlLanguage(language);
   const isAr = language === 'ar';
+  const isKu = language === 'ku';
 
   // JSON-LD stays English for SEO consistency — Google indexes the
   // canonical source regardless of client locale.
@@ -64,7 +68,7 @@ export default function CareersIndexPage() {
 
           <ul className="mt-12 grid gap-6 sm:grid-cols-2">
             {careers.map((role) => {
-              const ar = isAr ? careersAr[role.slug] : undefined;
+              const ar = isAr ? careersAr[role.slug] : isKu ? careersKu[role.slug] : undefined;
               const displayTitle = ar?.title ?? role.title;
               const displaySummary = ar?.summary ?? role.summary;
               const displayLocation = ar?.location ?? role.location;
@@ -98,7 +102,7 @@ export default function CareersIndexPage() {
                       {displaySummary}
                     </p>
                     <span className="mt-5 text-sm font-medium text-brand-600 group-hover:text-brand-700">
-                      {t.careers.viewRole} {isAr ? '←' : '→'}
+                      {t.careers.viewRole} {isRtl ? '←' : '→'}
                     </span>
                   </Link>
                 </li>
@@ -116,7 +120,7 @@ export default function CareersIndexPage() {
           <div className="mt-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <a
               href={`mailto:${siteConfig.email}?subject=${encodeURIComponent(
-                isAr ? 'الوظائف — استفسار عام' : 'Careers — General inquiry'
+                isAr ? 'الوظائف — استفسار عام' : isKu ? 'هەلی کار — پرسیاری گشتی' : 'Careers — General inquiry'
               )}`}
               className="rounded-lg bg-white px-8 py-3.5 text-sm font-semibold text-brand-700 shadow-sm transition-colors hover:bg-brand-50"
             >
